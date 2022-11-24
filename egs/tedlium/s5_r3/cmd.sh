@@ -6,10 +6,10 @@
 # the number of cpus on your machine.
 
 # Run locally:
-#export train_cmd=run.pl
-#export decode_cmd=run.pl
+export train_cmd=run.pl
+export decode_cmd=run.pl
 
 # JHU cluster (or most clusters using GridEngine, with a suitable
 # conf/queue.conf).
-export train_cmd="queue.pl"
-export decode_cmd="queue.pl --mem 4G"
+# export train_cmd="queue.pl"
+# export decode_cmd="queue.pl --mem 4G"
