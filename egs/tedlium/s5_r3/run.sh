@@ -36,7 +36,9 @@ train_lm=false
 
 # Data preparation
 if [ $stage -le 0 ]; then
+  echo "Stage 0 start:"
   local/download_data.sh
+  echo "Stage 0 end:"
 fi
 
 if [ $stage -le 1 ]; then
