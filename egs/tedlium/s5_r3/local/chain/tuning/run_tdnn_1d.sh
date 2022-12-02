@@ -33,7 +33,7 @@ set -e -o pipefail
 
 # First the options that are passed through to run_ivector_common.sh
 # (some of which are also used in this script directly).
-stage=0
+stage=18
 
 nj=15
 decode_nj=15
