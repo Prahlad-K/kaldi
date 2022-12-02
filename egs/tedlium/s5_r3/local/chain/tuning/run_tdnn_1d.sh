@@ -217,6 +217,7 @@ if [ $stage -le 18 ]; then
     --trainer.num-chunk-per-minibatch 64 \
     --trainer.frames-per-iter 5000000 \
     --trainer.num-epochs 6 \
+    --use-gpu=wait \
     --trainer.optimization.num-jobs-initial 3 \
     --trainer.optimization.num-jobs-final 12 \
     --trainer.optimization.initial-effective-lrate 0.00025 \
