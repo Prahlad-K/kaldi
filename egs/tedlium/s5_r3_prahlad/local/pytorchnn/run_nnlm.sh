@@ -40,7 +40,7 @@ oov='<UNK>' # Symbol for out-of-vocabulary words
 set -e
 
 text=data/train/text
-test_data=data/rnnlm/text
+test_data=data/rnnlm/text/ted.txt
 wordlist=data/lang_chain/words.txt
 data_dir=data/pytorchnn
 
