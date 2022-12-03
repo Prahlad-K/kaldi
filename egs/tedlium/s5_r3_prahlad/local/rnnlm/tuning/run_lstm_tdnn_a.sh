@@ -42,14 +42,21 @@ for f in $text $wordlist; do
 done
 
 if [ $stage -le 0 ]; then
-  mkdir -p $text_dir
-  gunzip -c db/TEDLIUM_release-3/LM/*.en.gz | sed 's/ <\/s>//g' > $text_dir/train.txt
-  # shuffle text from audio and lm
-  cat $text_from_audio | cut -d ' ' -f2- | cat $text_dir/train.txt |\
-    shuf > data/rnnlm/full_lm_data.shuffled
-  # create dev and train sets based on audio and LM data
-  cat data/rnnlm/full_lm_data.shuffled | head -n $dev_sents> $text_dir/dev.txt
-  cat data/rnnlm/full_lm_data.shuffled | tail -n +$[$dev_sents+1] > $text_dir/ted.txt
+
+  if [ -d "${text_dir}" ]; then
+    # Take action if $DIR exists. #
+    echo "${text_dir} already exists, moving on....."
+  else
+    echo "Generating ${text_dir}....."
+    mkdir -p $text_dir
+    gunzip -c db/TEDLIUM_release-3/LM/*.en.gz | sed 's/ <\/s>//g' > $text_dir/train.txt
+    # shuffle text from audio and lm
+    cat $text_from_audio | cut -d ' ' -f2- | cat $text_dir/train.txt |\
+      shuf > data/rnnlm/full_lm_data.shuffled
+    # create dev and train sets based on audio and LM data
+    cat data/rnnlm/full_lm_data.shuffled | head -n $dev_sents> $text_dir/dev.txt
+    cat data/rnnlm/full_lm_data.shuffled | tail -n +$[$dev_sents+1] > $text_dir/ted.txt
+  fi
 
 fi
 
