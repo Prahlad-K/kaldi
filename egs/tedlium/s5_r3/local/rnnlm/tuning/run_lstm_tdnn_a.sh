@@ -64,8 +64,6 @@ if [ $stage -le 1 ]; then
 
   cat > $dir/config/data_weights.txt <<EOF
 ted   1   1.0
-train 0   0.0
-dev   2   0.0
 EOF
 
   rnnlm/get_unigram_probs.py --vocab-file=$dir/config/words.txt \
