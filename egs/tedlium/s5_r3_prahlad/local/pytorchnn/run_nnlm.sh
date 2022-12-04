@@ -92,7 +92,7 @@ if [ $stage -le 1 ]; then
             --dropout $dropout \
             --seq_len $seq_len \
             --clip 1.0 \
-            --batch-size 32 \
+            --batch-size 16 \
             --epoch 64 \
             --save $nn_model \
             --tied \
