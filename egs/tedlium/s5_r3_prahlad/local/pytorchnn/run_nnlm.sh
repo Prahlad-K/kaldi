@@ -68,7 +68,7 @@ if [ $stage -le 0 ]; then
   cp $test_data $data_dir/
   mv $data_dir/dev.txt $data_dir/test.txt 
   cp $valid_data $data_dir/
-  mv $data_dir/dev.txt $data_dir/valid.txt 
+  mv $data_dir/ted.txt $data_dir/valid.txt 
   cp $wordlist $data_dir/
   # Make sure words.txt contains the symbol for out-of-vocabulary words.
   if ! grep -w $oov $data_dir/words.txt >/dev/null; then
