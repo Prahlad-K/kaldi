@@ -78,7 +78,7 @@ fi
 if [ $stage -le 1 ]; then
   # Train a PyTorch neural network language model.
   echo "Start neural network language model training."
-  $cuda_cmd $pytorch_path/log/train.log utils/parallel/limit_num_gpus.sh \
+  $train_cmd $pytorch_path/log/train.log utils/parallel/limit_num_gpus.sh \
     python3 steps/pytorchnn/train.py --data $data_dir \
             --model $model_type \
             --emsize $embedding_dim \
