@@ -39,8 +39,9 @@ oov='<UNK>' # Symbol for out-of-vocabulary words
 
 set -e
 
-text=data/train/text
-test_data=data/rnnlm/text/ted.txt
+train_data=data/rnnlm/text/train.txt
+test_data=data/rnnlm/text/dev.txt
+valid_data=data/rnnlm/text/ted.txt
 wordlist=data/lang_chain/words.txt
 data_dir=data/pytorchnn
 
@@ -63,10 +64,9 @@ if [ $stage -le 0 ]; then
     [ ! -f $f ] && echo "$0: expected file $f to exist." && exit 1
   done
   mkdir -p $data_dir
-  echo -n >$data_dir/valid.txt
-  # hold out one in every 500 lines as valid data.
-  gunzip -c $text | awk -v data_dir=$data_dir '{if(NR%500 == 0) { print >data_dir"/valid.txt"; } else {print;}}' >$data_dir/train.txt
-  < $test_data cut -d ' ' -f2- > $data_dir/test.txt
+  cp $train_data $data_dir/
+  cp $test_data $data_dir/
+  cp $valid_data $data_dir/
   cp $wordlist $data_dir/
   # Make sure words.txt contains the symbol for out-of-vocabulary words.
   if ! grep -w $oov $data_dir/words.txt >/dev/null; then
