@@ -7,7 +7,7 @@
 
 # Begin configuration section.
 model_type=Transformer # LSTM, GRU or Transformer
-jit=no
+# jit=no
 embedding_dim=768
 hidden_dim=768
 nlayers=6
@@ -107,7 +107,6 @@ if [ $stage -le 2 ]; then
      --vocabulary $vocab \
      --model-path $nn_model \
      --model $model_type \
-     --jit $jit
      --emsize $embedding_dim \
      --nhid $hidden_dim \
      --nlayers $nlayers \

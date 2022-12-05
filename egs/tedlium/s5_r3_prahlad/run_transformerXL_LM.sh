@@ -231,7 +231,7 @@ if [ $stage -le 19 ]; then
   nhead=16
   pytorch_path=exp/transformer_xl
   nn_model=$pytorch_path/model.pt
-  jit=yes
+#   jit=yes
   oov='<UNK>' # Symbol for out-of-vocabulary words
 
   for dset in dev test; do
@@ -244,7 +244,6 @@ if [ $stage -le 19 ]; then
     steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
         --cmd "$train_cmd --mem 4G" \
         --model-type $model_type \
-        --jit $jit
         --embedding_dim $embedding_dim \
         --hidden_dim $hidden_dim \
         --nlayers $nlayers \
