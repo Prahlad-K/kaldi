@@ -235,7 +235,7 @@ if [ $stage -le 19 ]; then
 
   for dset in dev test; do
     data_dir=data/${dset}_hires
-    decoding_dir=exp/chain_cleaned/tdnnf_1a/decode_${dset}
+    decoding_dir=exp/chain_cleaned_1d/tdnn1d_sp/decode_${dset}
     suffix=$(basename $tnnlm_dir)
     output_dir=${decoding_dir}_$suffix
     
