@@ -211,7 +211,7 @@ if [ $stage -le 18 ]; then
   echo "Stage 18 start"
   # Train Transformer LM or if already trained proceed
   if $train_transformer_nnlm; then
-    python3 local/save_transformer_model.py
+    python3 local/pytorchnn/save_transformer_model.py
   fi
 fi
 
