@@ -258,6 +258,8 @@ def main():
                         help="Path to a pretrained neural language model.")
     parser.add_argument('--model', type=str, default='LSTM',
                         help='Network type. Can be RNN, LSTM or Transformer.')
+    parser.add_argument('--jit', type=str, default='no',
+                        help='Is the model a torch JIT one?')
     parser.add_argument('--emsize', type=int, default=200,
                         help='Size of word embeddings.')
     parser.add_argument('--nhid', type=int, default=200,
@@ -288,7 +290,10 @@ def main():
         model = model.RNNModel(args.model, ntokens, args.emsize, args.nhid,
                                args.nlayers, tie_weights=True)
     with open(args.model_path, 'rb') as f:
-        model.load_state_dict(torch.load(f, map_location=lambda storage, loc: storage))
+        if args.jit == 'yes':
+            model.load_state_dict(torch.jit.load(f, map_location=lambda storage, loc: storage))
+        else:
+            model.load_state_dict(torch.load(f, map_location=lambda storage, loc: storage))
         if args.model in ['RNN_TANH', 'RNN_RELU', 'LSTM', 'GRU']:
             model.rnn.flatten_parameters()
     criterion = nn.CrossEntropyLoss(reduction='none')

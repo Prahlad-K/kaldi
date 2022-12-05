@@ -225,12 +225,13 @@ if [ $stage -le 19 ]; then
   ngram_order=4
 
   model_type=Transformer # LSTM, GRU or Transformer
-  embedding_dim=768
-  hidden_dim=768
-  nlayers=8
-  nhead=8
+  embedding_dim=1024
+  hidden_dim=4096
+  nlayers=18
+  nhead=16
   pytorch_path=exp/transformer_xl
   nn_model=$pytorch_path/model.pt
+  jit=yes
   oov='<UNK>' # Symbol for out-of-vocabulary words
 
   for dset in dev test; do
@@ -243,6 +244,7 @@ if [ $stage -le 19 ]; then
     steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
         --cmd "$train_cmd --mem 4G" \
         --model-type $model_type \
+        -- jit $jit
         --embedding_dim $embedding_dim \
         --hidden_dim $hidden_dim \
         --nlayers $nlayers \
