@@ -294,7 +294,7 @@ def main():
                                args.nlayers, tie_weights=True)
     with open(args.model_path, 'rb') as f:
         if args.jit == 'yes':
-            model.load_state_dict(torch.jit.load(f, map_location=lambda storage, loc: storage))
+            model.load_state_dict(torch.jit.load(f))
         else:
             model.load_state_dict(torch.load(f, map_location=lambda storage, loc: storage))
         if args.model in ['RNN_TANH', 'RNN_RELU', 'LSTM', 'GRU']:
