@@ -283,9 +283,12 @@ def main():
     print("Load model and criterion.")
     import model
     if args.model == 'Transformer':
+        # model = model.TransformerModel(ntokens, args.emsize, args.nhead,
+        #                                args.nhid, args.nlayers,
+        #                                activation="gelu", tie_weights=True)
         model = model.TransformerModel(ntokens, args.emsize, args.nhead,
                                        args.nhid, args.nlayers,
-                                       activation="gelu", tie_weights=True)
+                                       activation="gelu")
     else:
         model = model.RNNModel(args.model, ntokens, args.emsize, args.nhid,
                                args.nlayers, tie_weights=True)
