@@ -2,7 +2,7 @@ from transformers import TransfoXLTokenizer, TransfoXLModel
 import torch
 
 tokenizer = TransfoXLTokenizer.from_pretrained("transfo-xl-wt103")
-model = TransfoXLModel.from_pretrained("transfo-xl-wt103")
+model = TransfoXLModel.from_pretrained("transfo-xl-wt103", torchscript=True)
 
 
 # Tokenizing input text
