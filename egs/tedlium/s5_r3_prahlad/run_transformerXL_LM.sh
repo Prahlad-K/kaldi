@@ -218,7 +218,7 @@ fi
 if [ $stage -le 19 ]; then
   echo "Stage 19 start"
 
-  Here we rescore the lattices generated at stage 17
+  # Here we rescore the lattices generated at stage 17
   tnnlm_dir=exp/pytorch_transformer
   lang_dir=data/lang_chain
   vocab_data_dir = data/pytorchnn
