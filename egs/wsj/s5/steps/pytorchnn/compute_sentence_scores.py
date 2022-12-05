@@ -258,7 +258,7 @@ def main():
                         help="Path to a pretrained neural language model.")
     parser.add_argument('--model', type=str, default='LSTM',
                         help='Network type. Can be RNN, LSTM or Transformer.')
-    parser.add_argument('--jit', type=str, default='no',
+    parser.add_argument('--jit', type=str, default='yes',
                         help='Is the model a torch JIT one?')
     parser.add_argument('--emsize', type=int, default=200,
                         help='Size of word embeddings.')
