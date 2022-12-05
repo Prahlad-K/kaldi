@@ -78,6 +78,7 @@ if [ $stage -le 0 ]; then
 fi
 
 if [ $stage -le 1 ]; then
+  done
   # Train a PyTorch neural network language model.
   echo "Start neural network language model training."
   $train_cmd $pytorch_path/log/train.log utils/parallel/limit_num_gpus.sh \
