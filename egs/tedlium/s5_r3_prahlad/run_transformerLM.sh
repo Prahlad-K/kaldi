@@ -238,9 +238,8 @@ if [ $stage -le 19 ]; then
     suffix=$(basename $tnnlm_dir)
     output_dir=${decoding_dir}_$suffix
     
-
     steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
-        --cmd "$cmd --mem 4G" \
+        --cmd "$train_cmd --mem 4G" \
         --model-type $model_type \
         --embedding_dim $embedding_dim \
         --hidden_dim $hidden_dim \
