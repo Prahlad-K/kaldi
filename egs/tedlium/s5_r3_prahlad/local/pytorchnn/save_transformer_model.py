@@ -16,4 +16,4 @@ tokens_tensor = torch.tensor([indexed_tokens])
 
 # Creating the trace
 traced_model = torch.jit.trace(model, tokens_tensor)
-torch.jit.save(traced_model, "~/exp/pytorch_transformer/")
+torch.jit.save(traced_model, "~/exp/pytorch_transformer/transformer_xl.pt")
