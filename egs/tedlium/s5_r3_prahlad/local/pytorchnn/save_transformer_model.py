@@ -15,5 +15,5 @@ indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
 tokens_tensor = torch.tensor([indexed_tokens])
 
 # Creating the trace
-traced_model = torch.jit.trace(model, tokens_tensor)
-torch.jit.save(traced_model, "transformer_xl.pt")
+traced_model = torch.jit.script(model, tokens_tensor)
+torch.jit.save(traced_model, "exp/transformer_xl/transformer_xl.pt")

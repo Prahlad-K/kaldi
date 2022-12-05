@@ -231,7 +231,6 @@ if [ $stage -le 19 ]; then
   nhead=16
   pytorch_path=exp/transformer_xl
   nn_model=$pytorch_path/model.pt
-#   jit=yes
   oov='<UNK>' # Symbol for out-of-vocabulary words
 
   for dset in dev test; do
