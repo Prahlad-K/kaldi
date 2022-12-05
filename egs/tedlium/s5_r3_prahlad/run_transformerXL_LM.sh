@@ -244,7 +244,7 @@ if [ $stage -le 19 ]; then
     steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
         --cmd "$train_cmd --mem 4G" \
         --model-type $model_type \
-        -- jit $jit
+        --jit $jit
         --embedding_dim $embedding_dim \
         --hidden_dim $hidden_dim \
         --nlayers $nlayers \
