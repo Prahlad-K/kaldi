@@ -61,6 +61,7 @@ if [ $stage -le 0 ]; then
 fi
 
 if [ $stage -le 1 ]; then
+  done
   cp $wordlist $dir/config/
   n=`cat $dir/config/words.txt | wc -l`
   echo "<brk> $n" >> $dir/config/words.txt

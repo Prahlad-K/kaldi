@@ -28,7 +28,7 @@ nj=35
 decode_nj=38   # note: should not be >38 which is the number of speakers in the dev set
                # after applying --seconds-per-spk-max 180.  We decode with 4 threads, so
                # this will be too many jobs if you're using run.pl.
-stage=18
+stage=19
 train_transformer_nnlm=true
 train_lm=false
 
@@ -218,42 +218,42 @@ fi
 if [ $stage -le 19 ]; then
   echo "Stage 19 start"
 
-  # Here we rescore the lattices generated at stage 17
-#   tnnlm_dir=exp/pytorch_transformer
-#   lang_dir=data/lang_chain
-#   vocab_data_dir = data/pytorchnn
-#   ngram_order=4
+  Here we rescore the lattices generated at stage 17
+  tnnlm_dir=exp/pytorch_transformer
+  lang_dir=data/lang_chain
+  vocab_data_dir = data/pytorchnn
+  ngram_order=4
 
-#   model_type=Transformer # LSTM, GRU or Transformer
-#   embedding_dim=768
-#   hidden_dim=768
-#   nlayers=8
-#   nhead=8
-#   pytorch_path=exp/pytorch_transformer
-#   nn_model=$pytorch_path/model.pt
+  model_type=Transformer # LSTM, GRU or Transformer
+  embedding_dim=768
+  hidden_dim=768
+  nlayers=8
+  nhead=8
+  pytorch_path=exp/transformer_xl
+  nn_model=$pytorch_path/model.pt
 
-#   for dset in dev test; do
-#     data_dir=data/${dset}_hires
-#     vocab_dir = data/pytorchnn
-#     decoding_dir=exp/chain_cleaned/tdnnf_1a/decode_${dset}
-#     suffix=$(basename $tnnlm_dir)
-#     output_dir=${decoding_dir}_$suffix
+  for dset in dev test; do
+    data_dir=data/${dset}_hires
+    vocab_dir = data/pytorchnn
+    decoding_dir=exp/chain_cleaned/tdnnf_1a/decode_${dset}
+    suffix=$(basename $tnnlm_dir)
+    output_dir=${decoding_dir}_$suffix
     
 
-#     steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
-#         --cmd "$cmd --mem 4G" \
-#         --model-type $model_type \
-#         --embedding_dim $embedding_dim \
-#         --hidden_dim $hidden_dim \
-#         --nlayers $nlayers \
-#         --nhead $nhead \
-#         --weight 0.7 \
-#         --beam 4 \
-#         --epsilon 0.5 \
-#         --oov-symbol "'$oov'" \
-#         $lang_dir $nn_model $vocab_data_dir/words.txt \
-#         $data_dir $decoding_dir \
-#         $output_dir
+    steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
+        --cmd "$cmd --mem 4G" \
+        --model-type $model_type \
+        --embedding_dim $embedding_dim \
+        --hidden_dim $hidden_dim \
+        --nlayers $nlayers \
+        --nhead $nhead \
+        --weight 0.7 \
+        --beam 4 \
+        --epsilon 0.5 \
+        --oov-symbol "'$oov'" \
+        $lang_dir $nn_model $vocab_data_dir/words.txt \
+        $data_dir $decoding_dir \
+        $output_dir
 
   done
 fi
