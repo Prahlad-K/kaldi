@@ -221,7 +221,7 @@ if [ $stage -le 19 ]; then
   # Here we rescore the lattices generated at stage 17
   tnnlm_dir=exp/pytorch_transformer
   lang_dir=data/lang_chain
-  vocab_data_dir = data/pytorchnn
+  vocab_data_dir=data/pytorchnn
   ngram_order=4
 
   model_type=Transformer # LSTM, GRU or Transformer
@@ -234,7 +234,6 @@ if [ $stage -le 19 ]; then
 
   for dset in dev test; do
     data_dir=data/${dset}_hires
-    vocab_dir = data/pytorchnn
     decoding_dir=exp/chain_cleaned/tdnnf_1a/decode_${dset}
     suffix=$(basename $tnnlm_dir)
     output_dir=${decoding_dir}_$suffix
