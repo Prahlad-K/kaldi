@@ -224,13 +224,13 @@ if [ $stage -le 19 ]; then
   vocab_data_dir=data/pytorchnn
   ngram_order=4
 
-  model_type=Transformer # LSTM, GRU or Transformer
+  model_type=Transformer-XL
   embedding_dim=1024
   hidden_dim=4096
   nlayers=18
   nhead=16
   pytorch_path=exp/transformer_xl
-  nn_model=$pytorch_path/model.pt
+  nn_model=$pytorch_path/
   oov='<UNK>' # Symbol for out-of-vocabulary words
 
   for dset in dev test; do
