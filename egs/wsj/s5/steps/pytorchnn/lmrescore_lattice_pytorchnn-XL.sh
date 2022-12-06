@@ -62,7 +62,7 @@ elif [ ! -f $oldlm ]; then
     exit 1;
 fi
 
-for f in $nn_model $vocab $indir/lat.1.gz; do
+for f $vocab $indir/lat.1.gz; do
   [ ! -f $f ] && echo "$0: expected file $f to exist." && exit 1;
 done
 
