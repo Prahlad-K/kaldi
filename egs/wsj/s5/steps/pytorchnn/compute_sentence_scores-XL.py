@@ -148,7 +148,7 @@ def compute_sentence_score(model, criterion, ntokens, data, target,
 
     with torch.no_grad():
         output = model(data)
-        loss = criterion(output.view(-1, ntokens), target)
+        loss = criterion(output[0].view(-1, ntokens), target)
         loss = torch.reshape(loss, data.size())
         loss = loss.t() # [batch_size, length]
     sent_scores = loss.numpy()
