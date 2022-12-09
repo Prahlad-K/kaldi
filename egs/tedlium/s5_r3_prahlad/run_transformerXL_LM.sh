@@ -241,7 +241,7 @@ if [ $stage -le 19 ]; then
     
 
     steps/pytorchnn/lmrescore_lattice_pytorchnn-XL.sh \
-        --cmd "$train_cmd --mem 4G" \
+        --cmd "$train_cmd --max-jobs-run 1" \
         --model-type $model_type \
         --embedding_dim $embedding_dim \
         --hidden_dim $hidden_dim \
