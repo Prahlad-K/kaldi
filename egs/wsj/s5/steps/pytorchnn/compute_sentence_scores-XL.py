@@ -96,7 +96,7 @@ def get_input_and_target(args, hyps, tokenizer, vocab):
     # Preprocess input and target sequences
     inputs = []
     for hyp in hyps:
-        input_ids = tokenizer(hyp, return_tensors="pt")
+        input_ids = tokenizer(hyp, return_tensors="pt").to(device)
         # input_ids, output_ids = [], []
         # for word in input_string.split():
         #     try:
@@ -262,7 +262,7 @@ def main():
     print("Load Transformer XL model.")
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     model = TransfoXLLMHeadModel.from_pretrained(args.model_path).to(device)
-    tokenizer = TransfoXLTokenizer.from_pretrained("transfo-xl-wt103")
+    tokenizer = TransfoXLTokenizer.from_pretrained("transfo-xl-wt103").to(device)
 
     criterion = nn.CrossEntropyLoss(reduction='none')
     print("Load input word hypotheses.")
