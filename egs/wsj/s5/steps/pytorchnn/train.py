@@ -221,7 +221,9 @@ try:
     for epoch in range(1, args.epochs + 1):
         epoch_start_time = time.time()
         train()
+        print('Done with the train for now!')
         val_loss = evaluate(val_data)
+        print('Done evaluating!')
         print('-' * 89)
         print('| end of epoch {:3d} | time: {:5.2f}s | valid loss {:5.2f} | '
               'valid ppl {:8.2f}'.format(epoch, (time.time() - epoch_start_time),
@@ -233,6 +235,7 @@ try:
         if not best_val_loss or val_loss < best_val_loss:
             with open(args.save, 'wb') as f:
                 torch.save(model.state_dict(), f)
+                print('Saved the model')
             best_val_loss = val_loss
         else:
             lr /= 2.

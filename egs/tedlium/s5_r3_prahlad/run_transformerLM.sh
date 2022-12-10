@@ -28,7 +28,7 @@ nj=35
 decode_nj=38   # note: should not be >38 which is the number of speakers in the dev set
                # after applying --seconds-per-spk-max 180.  We decode with 4 threads, so
                # this will be too many jobs if you're using run.pl.
-stage=18
+stage=19
 train_transformer_nnlm=true
 train_lm=false
 
@@ -235,12 +235,14 @@ if [ $stage -le 19 ]; then
 
   for dset in dev test; do
     data_dir=data/${dset}_hires
-    decoding_dir=exp/chain_cleaned/tdnnf_1a/decode_${dset}
+    #decoding_dir=exp/chain_cleaned/tdnnf_1a/decode_${dset}
+    decoding_dir=exp/chain_cleaned_1d/tdnn1d_sp/decode_${dset}
     suffix=$(basename $tnnlm_dir)
     output_dir=${decoding_dir}_$suffix
     
+
     steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
-        --cmd "$decode_cmd --mem 4G" \
+        --cmd "$decode_cmd --max-jobs-run 4" \
         --model-type $model_type \
         --embedding_dim $embedding_dim \
         --hidden_dim $hidden_dim \
