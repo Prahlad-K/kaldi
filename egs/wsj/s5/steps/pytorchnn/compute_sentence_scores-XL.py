@@ -17,6 +17,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 from transformers import TransfoXLLMHeadModel, TransfoXLTokenizer
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 def load_sents(path):
     r"""Read word sentences that represent hypotheses of utterances.
