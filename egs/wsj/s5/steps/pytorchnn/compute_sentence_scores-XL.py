@@ -150,6 +150,7 @@ def compute_sentence_score(model, criterion, ntokens, inputs,
         losses = []
         mems = None
         for input_tokenizer in inputs:
+            print(input_tokenizer)
             output = model(**input_tokenizer, labels=input_tokenizer['input_ids'], mems=mems)
             mems = output.mems
             losses.append(output.losses.cpu().detach().flatten().numpy())
