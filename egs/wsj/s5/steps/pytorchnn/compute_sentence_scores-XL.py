@@ -13,9 +13,10 @@ import os
 import argparse
 from collections import defaultdict
 
+import numpy as np
 import torch
 import torch.nn as nn
-from transformers import TransfoXLModel
+from transformers import TransfoXLLMHeadModel, TransfoXLTokenizer
 
 def load_sents(path):
     r"""Read word sentences that represent hypotheses of utterances.
@@ -74,7 +75,7 @@ def read_vocab(path):
     return word2idx
 
 
-def get_input_and_target(args, hyps, vocab):
+def get_input_and_target(args, hyps, tokenizer, vocab):
     r"""Convert hypotheses to lists of integers, with input and target separately.
 
     Args:
@@ -93,40 +94,38 @@ def get_input_and_target(args, hyps, vocab):
     assert batch_size > 0
 
     # Preprocess input and target sequences
-    inputs, outputs = [], []
+    inputs = []
     for hyp in hyps:
-        input_string = args.sent_boundary + ' ' + hyp
-        output_string = hyp + ' ' + args.sent_boundary
-        input_ids, output_ids = [], []
-        for word in input_string.split():
-            try:
-                input_ids.append(vocab[word])
-            except KeyError:
-                input_ids.append(vocab[args.oov])
-        for word in output_string.split():
-            try:
-                output_ids.append(vocab[word])
-            except KeyError:
-                output_ids.append(vocab[args.oov])
+        input_ids = tokenizer(hyp, return_tensors="pt")
+        # input_ids, output_ids = [], []
+        # for word in input_string.split():
+        #     try:
+        #         input_ids.append(vocab[word])
+        #     except KeyError:
+        #         input_ids.append(vocab[args.oov])
+        # for word in output_string.split():
+        #     try:
+        #         output_ids.append(vocab[word])
+        #     except KeyError:
+        #         output_ids.append(vocab[args.oov])
         inputs.append(input_ids)
-        outputs.append(output_ids)
 
-    batch_lens = [len(seq) for seq in inputs]
-    seq_lens = torch.LongTensor(batch_lens)
-    max_len = max(batch_lens)
+    # batch_lens = [len(seq) for seq in inputs]
+    #seq_lens = torch.LongTensor(batch_lens)
+    # max_len = max(batch_lens)
 
-    # Zero padding for input and target sequences.
-    data = torch.LongTensor(batch_size, max_len).zero_()
-    target = torch.LongTensor(batch_size, max_len).zero_()
-    for idx, seq_len in enumerate(batch_lens):
-        data[idx, :seq_len] = torch.LongTensor(inputs[idx])
-        target[idx, :seq_len] = torch.LongTensor(outputs[idx])
-    data = data.t().contiguous()
-    target = target.t().contiguous().view(-1)
-    return data, target, seq_lens
+    # # Zero padding for input and target sequences.
+    # data = torch.LongTensor(batch_size, max_len).zero_()
+    # target = torch.LongTensor(batch_size, max_len).zero_()
+    # for idx, seq_len in enumerate(batch_lens):
+    #     data[idx, :seq_len] = torch.LongTensor(inputs[idx])
+    #     target[idx, :seq_len] = torch.LongTensor(outputs[idx])
+    # data = data.t().contiguous()
+    # target = target.t().contiguous().view(-1)
+    return inputs
 
 
-def compute_sentence_score(model, criterion, ntokens, data, target,
+def compute_sentence_score(model, criterion, ntokens, inputs,
                            model_type='LSTM', hidden=None):
     r"""Compute neural language model scores of hypotheses of an utterance.
 
@@ -147,14 +146,23 @@ def compute_sentence_score(model, criterion, ntokens, data, target,
     """
 
     with torch.no_grad():
-        output = model(data)
-        loss = criterion(output[0].view(-1, ntokens), target)
-        loss = torch.reshape(loss, data.size())
-        loss = loss.t() # [batch_size, length]
-    sent_scores = loss.numpy()
-    return sent_scores
+        losses = []
+        mems = None
+        for input_tokenizer in inputs:
+            output = model(**input_tokenizer, labels=input_tokenizer['input_ids'], mems=mems)
+            mems = output.mems
+            losses.append(output.losses.cpu().detach().flatten().numpy())
 
-def compute_scores(args, sents, model, criterion, ntokens, vocab, model_type='LSTM'):
+        loss_lens = [len(loss) for loss in losses]
+        max_losslen = max(loss_lens)
+
+        for i, loss in enumerate(losses):
+            losses[i] = np.pad(loss, (0, max_losslen-len(loss)), 'constant')
+
+        sent_scores = np.stack(losses, axis = 0)
+    return sent_scores, loss_lens
+
+def compute_scores(args, sents, model, criterion, tokenizer, ntokens, vocab, model_type='LSTM'):
     r"""Compute neural language model scores of hypotheses for all utterances.
 
     Args:
@@ -177,10 +185,10 @@ def compute_scores(args, sents, model, criterion, ntokens, vocab, model_type='LS
     for idx, key in enumerate(sents.keys()):
         batch_size = len(sents[key])
         # Dimension of input data is [seq_len, batch_size]
-        data, targets, seq_lens = get_input_and_target(args, sents[key], vocab)
+        inputs = get_input_and_target(args, sents[key], tokenizer, vocab)
         
-        scores = compute_sentence_score(model, criterion, ntokens, data,
-                                            targets, model_type)
+        scores, seq_lens = compute_sentence_score(model, criterion, ntokens, inputs,
+                                            model_type)
         for idx, hyp in enumerate(sents[key]):
             if key in sents_and_scores:
                 sents_and_scores[key].append((hyp, scores[idx][:seq_lens[idx]]))
@@ -250,15 +258,17 @@ def main():
     print("Load vocabulary.")
     vocab = read_vocab(args.vocabulary)
     ntokens = len(vocab)
-    print("Load Transformer XL model and criterion.")
     
-    model = TransfoXLModel.from_pretrained(args.model_path)
+    print("Load Transformer XL model.")
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    model = TransfoXLLMHeadModel.from_pretrained(args.model_path).to(device)
+    tokenizer = TransfoXLTokenizer.from_pretrained(args.model_path)
 
     criterion = nn.CrossEntropyLoss(reduction='none')
     print("Load input word hypotheses.")
     sents = load_sents(args.infile)
     print("Compute word scores with a ", args.model, " model.")
-    sents_and_scores = compute_scores(args, sents, model, criterion, ntokens, vocab,
+    sents_and_scores = compute_scores(args, sents, model, criterion, tokenizer, ntokens, vocab,
                                       model_type=args.model)
     print("Write out word scores.")
     write_scores(sents_and_scores, args.outfile)

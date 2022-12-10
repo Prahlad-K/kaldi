@@ -1,0 +1,33 @@
+exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_pytorch_transformer/wer_10
+%WER 6.82 [ 1212 / 17783, 207 ins, 309 del, 696 sub ]
+%SER 68.64 [ 348 / 507 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_pytorch_transformer/wer_11
+%WER 6.97 [ 1239 / 17783, 200 ins, 343 del, 696 sub ]
+%SER 70.02 [ 355 / 507 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_pytorch_transformer/wer_12
+%WER 7.09 [ 1260 / 17783, 191 ins, 388 del, 681 sub ]
+%SER 70.81 [ 359 / 507 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_pytorch_transformer/wer_13
+%WER 7.33 [ 1304 / 17783, 190 ins, 420 del, 694 sub ]
+%SER 71.79 [ 364 / 507 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_pytorch_transformer/wer_14
+%WER 7.42 [ 1320 / 17783, 195 ins, 433 del, 692 sub ]
+%SER 71.79 [ 364 / 507 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_pytorch_transformer/wer_15
+%WER 7.57 [ 1346 / 17783, 191 ins, 454 del, 701 sub ]
+%SER 72.78 [ 369 / 507 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_pytorch_transformer/wer_16
+%WER 7.66 [ 1363 / 17783, 190 ins, 464 del, 709 sub ]
+%SER 72.78 [ 369 / 507 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_pytorch_transformer/wer_17
+%WER 7.78 [ 1384 / 17783, 190 ins, 486 del, 708 sub ]
+%SER 73.18 [ 371 / 507 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_pytorch_transformer/wer_7
+%WER 7.00 [ 1244 / 17783, 243 ins, 240 del, 761 sub ]
+%SER 68.44 [ 347 / 507 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_pytorch_transformer/wer_8
+%WER 6.89 [ 1225 / 17783, 230 ins, 252 del, 743 sub ]
+%SER 68.44 [ 347 / 507 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_pytorch_transformer/wer_9
+%WER 6.78 [ 1205 / 17783, 217 ins, 274 del, 714 sub ]
+%SER 69.03 [ 350 / 507 ]
