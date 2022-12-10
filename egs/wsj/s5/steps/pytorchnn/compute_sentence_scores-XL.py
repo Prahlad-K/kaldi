@@ -262,7 +262,7 @@ def main():
     print("Load Transformer XL model.")
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     model = TransfoXLLMHeadModel.from_pretrained(args.model_path).to(device)
-    tokenizer = TransfoXLTokenizer.from_pretrained("transfo-xl-wt103").to(device)
+    tokenizer = TransfoXLTokenizer.from_pretrained("transfo-xl-wt103")
 
     criterion = nn.CrossEntropyLoss(reduction='none')
     print("Load input word hypotheses.")
