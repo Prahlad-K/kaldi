@@ -97,7 +97,7 @@ def get_input_and_target(args, hyps, tokenizer, vocab):
     # Preprocess input and target sequences
     inputs = []
     for hyp in hyps:
-        input_ids = tokenizer(hyp, return_tensors="pt").to(device)
+        input_ids = tokenizer(args.sent_boundary + ' ' + hyp, return_tensors="pt").to(device)
         # input_ids, output_ids = [], []
         # for word in input_string.split():
         #     try:
