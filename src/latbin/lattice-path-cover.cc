@@ -38,7 +38,7 @@ class PathCoverComputer {
   
   // Note: 'clat' must be topologically sorted.
   PathCoverComputer(const CompactLattice &clat):clat_(clat) {
-    KALDI_ASSERT(clat.NumStates() > 1);
+    // KALDI_ASSERT(clat.NumStates() > 1);
     // Each arc is indexed by a state pair (start_state, end_state)
     for (StateId s = 0; s < clat.NumStates(); s++) {
       for (fst::ArcIterator<CompactLattice> aiter(clat, s);
