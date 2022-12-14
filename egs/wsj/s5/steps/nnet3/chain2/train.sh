@@ -19,7 +19,7 @@ dropout_schedule=
 srand=0
 max_param_change=2.0    # we use a smaller than normal default (it's normally
                         # 2.0), because there are two models (bottom and top).
-use_gpu=yes   # can be "yes", "no", "optional", "wait"
+use_gpu=wait   # can be "yes", "no", "optional", "wait"
 print_interval=10
 momentum=0.0
 parallel_train_opts=
