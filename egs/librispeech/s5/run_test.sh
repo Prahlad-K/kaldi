@@ -245,7 +245,7 @@ if [ $stage -le 18 ]; then
   # decode using the tri6b model
   # utils/mkgraph.sh data/lang_test_tgsmall \
   #                  exp/tri6b exp/tri6b/graph_tgsmall
-  utils/mkgraph.sh data/lang_test_tgsmall \
+  utils/mkgraph.sh data/lang_nosp_test_tgsmall \
                    exp/tri3 exp/tri3/graph
   for test in test_clean test_other; do
       steps/decode_fmllr.sh --nj 20 --cmd "$decode_cmd" \
