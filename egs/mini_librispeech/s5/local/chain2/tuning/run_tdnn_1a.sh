@@ -25,7 +25,7 @@ set -euo pipefail
 
 # First the options that are passed through to run_ivector_common.sh
 # (some of which are also used in this script directly).
-stage=0
+stage=15
 decode_nj=10
 train_set=train_clean_5
 test_sets=dev_clean_2
