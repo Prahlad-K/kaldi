@@ -286,7 +286,7 @@ def main():
                                        activation="gelu", tie_weights=True)
     else:
         model = model.RNNModel(args.model, ntokens, args.emsize, args.nhid,
-                               args.nlayers, tie_weights=True)
+                               args.nlayers)
     with open(args.model_path, 'rb') as f:
         model.load_state_dict(torch.load(f, map_location=lambda storage, loc: storage))
         if args.model in ['RNN_TANH', 'RNN_RELU', 'LSTM', 'GRU']:
