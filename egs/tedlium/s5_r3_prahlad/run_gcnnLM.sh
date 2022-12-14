@@ -263,6 +263,7 @@ if [ $stage -le 19 ]; then
   # Here we rescore the lattices generated at stage 17
   gnnlm_dir=exp/gcnnlm
   lang_dir=data/lang_chain
+  vocab_data_dir=data/pytorchnn
   ngram_order=4
 
   model_type=GRU # LSTM, GRU or Transformer
