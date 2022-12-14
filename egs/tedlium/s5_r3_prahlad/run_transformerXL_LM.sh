@@ -219,7 +219,7 @@ if [ $stage -le 19 ]; then
   echo "Stage 19 start"
 
   # Here we rescore the lattices generated at stage 17
-  tnnlm_dir=exp/pytorch_transformer
+  tnnlm_dir=exp/transformer_xl
   lang_dir=data/lang_chain
   vocab_data_dir=data/pytorchnn
   ngram_order=4
@@ -233,7 +233,7 @@ if [ $stage -le 19 ]; then
   nn_model=$pytorch_path/
   oov='<UNK>' # Symbol for out-of-vocabulary words
 
-  for dset in dev test; do
+  for dset in test; do
     data_dir=data/${dset}_hires
     decoding_dir=exp/chain_cleaned_1d/tdnn1d_sp/decode_${dset}
     suffix=$(basename $tnnlm_dir)
