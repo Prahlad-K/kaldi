@@ -326,7 +326,7 @@ if [ $stage -le 22 ]; then
   echo "$0: about to train model"
   steps/chain2/train.sh \
     --stage $train_stage --cmd "$train_cmd" \
-    --use-gpu=wait
+    --use-gpu wait
     --xent-regularize $xent_regularize --leaky-hmm-coefficient 0.1 \
     --max-param-change 2.0 \
     --num-jobs-initial 2 --num-jobs-final 5 \
