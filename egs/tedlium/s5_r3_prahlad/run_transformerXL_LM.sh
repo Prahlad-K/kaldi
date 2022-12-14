@@ -28,7 +28,7 @@ nj=35
 decode_nj=38   # note: should not be >38 which is the number of speakers in the dev set
                # after applying --seconds-per-spk-max 180.  We decode with 4 threads, so
                # this will be too many jobs if you're using run.pl.
-stage=19
+stage=20
 train_transformer_nnlm=true
 train_lm=false
 
@@ -261,7 +261,7 @@ if [ $stage -le 20 ]; then
   echo "Stage 20 start"
 
   # Here we rescore the lattices generated from the Librispeech model
-  tnnlm_dir=exp/pytorch_transformer
+  tnnlm_dir=exp/transformer_xl
   lang_dir=data/lang_test_tglarge
   vocab_data_dir=data/pytorchnn
   ngram_order=4
