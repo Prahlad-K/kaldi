@@ -46,7 +46,7 @@ $cmd LMWT=$min_lmwt:$max_lmwt $dir/scoring/log/score.LMWT.log \
    cat $dir/scoring/LMWT.tra \| \
     utils/int2sym.pl -f 2- $symtab \| \
     sed "'s:<unk>::g'" \| \
-    compute-wer --text --mode=present \
+    compute-wer --text --mode=all \
      ark:$dir/scoring/test_filt.txt  ark,p:- ">&" $dir/wer_LMWT || exit 1;
 
 # Show results
