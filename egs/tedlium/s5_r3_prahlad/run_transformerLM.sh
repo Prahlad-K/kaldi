@@ -233,7 +233,7 @@ if [ $stage -le 19 ]; then
   nn_model=$pytorch_path/model.pt
   oov='<UNK>' # Symbol for out-of-vocabulary words
 
-  for dset in dev test; do
+  for dset in test; do
     data_dir=data/${dset}_hires
     #decoding_dir=exp/chain_cleaned/tdnnf_1a/decode_${dset}
     decoding_dir=exp/chain_cleaned_1d/tdnn1d_sp/decode_${dset}
@@ -242,7 +242,7 @@ if [ $stage -le 19 ]; then
     
 
     steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
-        --cmd "$decode_cmd --max-jobs-run 4" \
+        --cmd "$decode_cmd --max-jobs-run 1" \
         --model-type $model_type \
         --embedding_dim $embedding_dim \
         --hidden_dim $hidden_dim \
