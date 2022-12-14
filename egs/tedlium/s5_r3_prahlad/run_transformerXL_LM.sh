@@ -257,7 +257,49 @@ if [ $stage -le 19 ]; then
 
   done
 fi
+if [ $stage -le 20 ]; then
+  echo "Stage 20 start"
 
+  # Here we rescore the lattices generated from the Librispeech model
+  tnnlm_dir=exp/pytorch_transformer
+  lang_dir=data/lang_test_tglarge
+  vocab_data_dir=data/pytorchnn
+  ngram_order=4
+
+  model_type=Transformer-XL
+  embedding_dim=1024
+  hidden_dim=4096
+  nlayers=18
+  nhead=16
+  pytorch_path=exp/transformer_xl
+  nn_model=$pytorch_path/
+  oov='<UNK>' # Symbol for out-of-vocabulary words
+
+  for dset in dev_clean_2; do
+    data_dir=data/${dset}_hires
+    #decoding_dir=exp/chain_cleaned/tdnnf_1a/decode_${dset}
+    decoding_dir=exp/tri3b/decode_tglarge_$dset
+    suffix=$(basename $tnnlm_dir)
+    output_dir=${decoding_dir}_$suffix
+    
+
+    steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
+        --cmd "$decode_cmd --max-jobs-run 1" \
+        --model-type $model_type \
+        --embedding_dim $embedding_dim \
+        --hidden_dim $hidden_dim \
+        --nlayers $nlayers \
+        --nhead $nhead \
+        --weight 0.7 \
+        --beam 4 \
+        --epsilon 0.5 \
+        --oov-symbol "'$oov'" \
+        $lang_dir $nn_model $vocab_data_dir/words.txt \
+        $data_dir $decoding_dir \
+        $output_dir
+
+  done
+fi
 
 echo "$0: success."
 exit 0
