@@ -1,7 +1,6 @@
-from transformers import TransfoXLLMHeadModel
-import torch
+from transformers import BertModel
 
 # Get the model online
-model = TransfoXLLMHeadModel.from_pretrained("transfo-xl-wt103")
+model = BertModel.from_pretrained("bert-base-uncased")
 # Save the pretrained model
-TransfoXLLMHeadModel.save_pretrained(model, 'exp/transformer_xl/')
+BertModel.save_pretrained(model, 'exp/gcnnlm/')

@@ -253,41 +253,57 @@ if [ $stage -le 17 ]; then
 fi
 
 if [ $stage -le 18 ]; then
-  # train the gated CNN from fairseq
-  echo "start run stage 18"
-  echo "Trained gated CNN!"
-  echo "run stage 18 DONE"
+  echo "Stage 18 start"
+  # Train GCNN LM or if already trained proceed
+  if $train_gcnnlm; then
+    python3 local/pytorchnn/save_fairseq_gcnn_model.py
+  fi
 fi
 
 if [ $stage -le 19 ]; then
+  echo "Stage 19 start"
+
   # Here we rescore the lattices generated at stage 17
-  gnnlm_dir=exp/gcnnlm
+  tnnlm_dir=exp/gcnnlm
   lang_dir=data/lang_chain
   vocab_data_dir=data/pytorchnn
   ngram_order=4
 
-  model_type=GRU # LSTM, GRU or Transformer
+  model_type=GCNN
   embedding_dim=280
   hidden_dim=850
-  nlayers=14
+  nlayers=8
+  nhead=16
   pytorch_path=exp/gcnnlm
-  nn_model=$pytorch_path/model.pt
+  nn_model=$pytorch_path/
   oov='<UNK>' # Symbol for out-of-vocabulary words
 
   for dset in test; do
     data_dir=data/${dset}_hires
-    #decoding_dir=exp/chain_cleaned/tdnnf_1a/decode_${dset}
     decoding_dir=exp/chain_cleaned_1d/tdnn1d_sp/decode_${dset}
-    suffix=$(basename $gnnlm_dir)
+    suffix=$(basename $tnnlm_dir)
     output_dir=${decoding_dir}_$suffix
     
-
-    steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
+    steps/pytorchnn/lmrescore_nbest_pytorchnn-gcnn.sh \
         --cmd "$decode_cmd --max-jobs-run 1" \
         --model-type $model_type \
         --embedding_dim $embedding_dim \
         --hidden_dim $hidden_dim \
         --nlayers $nlayers \
+        --nhead $nhead \
+        --weight 0.7 \
+        --oov-symbol "'$oov'" \
+        $lang_dir $nn_model $vocab_data_dir/words.txt \
+        $data_dir $decoding_dir \
+        $output_dir
+
+    steps/pytorchnn/lmrescore_lattice_pytorchnn-gcnn.sh \
+        --cmd "$decode_cmd --max-jobs-run 1" \
+        --model-type $model_type \
+        --embedding_dim $embedding_dim \
+        --hidden_dim $hidden_dim \
+        --nlayers $nlayers \
+        --nhead $nhead \
         --weight 0.7 \
         --beam 4 \
         --epsilon 0.5 \
@@ -295,9 +311,64 @@ if [ $stage -le 19 ]; then
         $lang_dir $nn_model $vocab_data_dir/words.txt \
         $data_dir $decoding_dir \
         $output_dir
+
   done
 fi
+if [ $stage -le 20 ]; then
+  echo "Stage 20 start"
 
+  # Here we rescore the lattices generated from the Librispeech model
+  tnnlm_dir=exp/gcnnlm
+  lang_dir=data/lang_test_tgsmall
+  vocab_data_dir=data/pytorchnn
+  ngram_order=4
+
+  model_type=GCNN
+  embedding_dim=280
+  hidden_dim=850
+  nlayers=18
+  nhead=16
+  pytorch_path=exp/gcnnlm
+  nn_model=$pytorch_path/
+  oov='<UNK>' # Symbol for out-of-vocabulary words
+
+  for dset in dev_clean_2; do
+    data_dir=data/${dset}_hires
+    #decoding_dir=exp/chain_cleaned/tdnnf_1a/decode_${dset}
+    decoding_dir=exp/tri3b/decode_tgsmall_$dset
+    suffix=$(basename $tnnlm_dir)
+    output_dir=${decoding_dir}_$suffix
+    
+    steps/pytorchnn/lmrescore_nbest_pytorchnn-XL.sh \
+        --cmd "$decode_cmd --max-jobs-run 1" \
+        --model-type $model_type \
+        --embedding_dim $embedding_dim \
+        --hidden_dim $hidden_dim \
+        --nlayers $nlayers \
+        --nhead $nhead \
+        --weight 0.7 \
+        --oov-symbol "'$oov'" \
+        $lang_dir $nn_model $vocab_data_dir/words.txt \
+        $data_dir $decoding_dir \
+        $output_dir
+
+    steps/pytorchnn/lmrescore_lattice_pytorchnn-XL.sh \
+        --cmd "$decode_cmd --max-jobs-run 1" \
+        --model-type $model_type \
+        --embedding_dim $embedding_dim \
+        --hidden_dim $hidden_dim \
+        --nlayers $nlayers \
+        --nhead $nhead \
+        --weight 0.7 \
+        --beam 4 \
+        --epsilon 0.5 \
+        --oov-symbol "'$oov'" \
+        $lang_dir $nn_model $vocab_data_dir/words.txt \
+        $data_dir $decoding_dir \
+        $output_dir
+        
+  done
+fi
 
 echo "$0: success."
 exit 0

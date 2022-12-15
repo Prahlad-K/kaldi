@@ -16,7 +16,7 @@ from collections import defaultdict
 import numpy as np
 import torch
 import torch.nn as nn
-from transformers import TransfoXLLMHeadModel, TransfoXLTokenizer
+from transformers import BertTokenizer, BertModel
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 def load_sents(path):
@@ -261,9 +261,9 @@ def main():
     vocab = read_vocab(args.vocabulary)
     ntokens = len(vocab)
     
-    print("Load Transformer XL model.")
-    model = TransfoXLLMHeadModel.from_pretrained(args.model_path).to(device)
-    tokenizer = TransfoXLTokenizer.from_pretrained("transfo-xl-wt103")
+    print("Load GCNN model.")
+    model = BertModel.from_pretrained(args.model_path).to(device)
+    tokenizer = BertTokenizer.from_pretrained("bert-based-uncased")
 
     criterion = nn.CrossEntropyLoss(reduction='none')
     print("Load input word hypotheses.")
