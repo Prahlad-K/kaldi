@@ -148,12 +148,12 @@ def compute_sentence_score(model, criterion, ntokens, inputs,
 
     with torch.no_grad():
         losses = []
-        mems = None
+        past_key_values = None
         for input_tokenizer in inputs:
             print(input_tokenizer)
-            output = model(**input_tokenizer, labels=input_tokenizer['input_ids'], mems=mems)
-            mems = output.mems
-            losses.append(output.losses.cpu().detach().flatten().numpy())
+            output = model(**input_tokenizer, labels=input_tokenizer['input_ids'], past_key_values=past_key_values)
+            past_key_values = output.past_key_values
+            losses.append(output.logits.cpu().detach().flatten().numpy())
 
         loss_lens = [len(loss) for loss in losses]
         max_losslen = max(loss_lens)
