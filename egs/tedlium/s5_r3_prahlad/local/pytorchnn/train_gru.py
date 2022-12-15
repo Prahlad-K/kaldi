@@ -187,3 +187,6 @@ def main():
         plot.update({"loss": np.mean(loss_arr)})
         plot.draw()
         print("epoch %d/%d" % (j+1, epoch_num))
+
+if __name__ == '__main__':
+    main()
