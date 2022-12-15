@@ -263,7 +263,7 @@ def main():
     
     print("Load GCNN model.")
     model = BertModel.from_pretrained(args.model_path).to(device)
-    tokenizer = BertTokenizer.from_pretrained("bert-based-uncased")
+    tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
 
     criterion = nn.CrossEntropyLoss(reduction='none')
     print("Load input word hypotheses.")
