@@ -264,7 +264,7 @@ if [ $stage -le 20 ]; then
 
   # Here we rescore the lattices generated from the Librispeech model
   tnnlm_dir=exp/pytorch_transformer
-  lang_dir=data/lang_test_tglarge
+  lang_dir=data/lang_test_tgmed
   vocab_data_dir=data/pytorchnn
   ngram_order=4
 
@@ -280,7 +280,7 @@ if [ $stage -le 20 ]; then
   for dset in dev_clean_2; do
     data_dir=data/${dset}_hires
     #decoding_dir=exp/chain_cleaned/tdnnf_1a/decode_${dset}
-    decoding_dir=exp/tri3b/decode_tglarge_$dset
+    decoding_dir=exp/tri3b/decode_tgmed_$dset
     suffix=$(basename $tnnlm_dir)
     output_dir=${decoding_dir}_$suffix
     
