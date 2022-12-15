@@ -5,4 +5,4 @@
 nj=8
 echo "$0: training gcnn."
 $train_cmd JOB=1:$nj log/train_gru.JOB.log \
-PYTHONPATH=steps/pytorchnn python3 train_gru.py
+PYTHONPATH=local/pytorchnn python3 train_gru.py
