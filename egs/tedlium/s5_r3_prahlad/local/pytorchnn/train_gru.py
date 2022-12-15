@@ -120,6 +120,7 @@ def get_batches(type, train_sents, vocab):
     data['sent'] = input_data
     data['sent_length'] = max_len
     main_data[idx] = data
+    print('Done processing', idx, 'batch.')
   return main_data
 
 embedding_size = 850
