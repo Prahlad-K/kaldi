@@ -183,7 +183,7 @@ def main():
             # convert numpy to torch.LongTensor
             # data['sent'] = torch.LongTensor(data['sent'])
             net.zero_grad()
-            loss = net(data, vocab_size)
+            loss = net(data)
             loss_arr.append(loss.tolist())
             loss.backward()
             optimizer.step()
