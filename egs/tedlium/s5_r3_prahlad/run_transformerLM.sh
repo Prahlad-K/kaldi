@@ -248,8 +248,6 @@ if [ $stage -le 19 ]; then
         --nlayers $nlayers \
         --nhead $nhead \
         --weight 0.7 \
-        --beam 4 \
-        --epsilon 0.5 \
         --oov-symbol "'$oov'" \
         $lang_dir $nn_model $vocab_data_dir/words.txt \
         $data_dir $decoding_dir \
@@ -306,8 +304,6 @@ if [ $stage -le 20 ]; then
         --nlayers $nlayers \
         --nhead $nhead \
         --weight 0.7 \
-        --beam 4 \
-        --epsilon 0.5 \
         --oov-symbol "'$oov'" \
         $lang_dir $nn_model $vocab_data_dir/words.txt \
         $data_dir $decoding_dir \
