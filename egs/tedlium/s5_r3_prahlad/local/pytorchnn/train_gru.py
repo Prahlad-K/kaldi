@@ -121,6 +121,7 @@ def get_batches(type, train_sents, vocab):
     data['sent_length'] = max_len
     main_data[idx] = data
     print('Done processing', idx, 'batch.')
+    break
   return main_data
 
 embedding_size = 850
@@ -177,7 +178,6 @@ def main():
     plot = PlotLosses()
 
     for j in range(epoch_num):
-        print('Epoch ', j, ':')
         loss_arr = []
         for i, data in enumerate(get_batches("train", train_sents, vocab)):
             # convert numpy to torch.LongTensor
@@ -192,6 +192,7 @@ def main():
         plot.update({"loss": np.mean(loss_arr)})
         plot.draw()
         print("epoch %d/%d" % (j+1, epoch_num))
+        torch.save(net.state_dict(), 'gcnnlm.pt')
 
 if __name__ == '__main__':
     main()
