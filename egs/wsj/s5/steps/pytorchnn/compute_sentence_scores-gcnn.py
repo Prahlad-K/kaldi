@@ -16,7 +16,7 @@ from collections import defaultdict
 import numpy as np
 import torch
 import torch.nn as nn
-from transformers import BertTokenizer, BertModel
+from transformers import BertTokenizer, BertLMHeadModel
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 def load_sents(path):
@@ -262,7 +262,7 @@ def main():
     ntokens = len(vocab)
     
     print("Load GCNN model.")
-    model = BertModel.from_pretrained(args.model_path).to(device)
+    model = BertLMHeadModel.from_pretrained(args.model_path).to(device)
     tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
 
     criterion = nn.CrossEntropyLoss(reduction='none')
