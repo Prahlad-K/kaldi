@@ -182,6 +182,7 @@ def main():
         for i, data in enumerate(get_batches("train", train_sents, vocab)):
             # convert numpy to torch.LongTensor
             # data['sent'] = torch.LongTensor(data['sent'])
+            print(i, data)
             net.zero_grad()
             loss = net(data)
             loss_arr.append(loss.tolist())
