@@ -164,7 +164,7 @@ class LanguageModel(nn.Module):
 def main():
     vocab = read_vocab('/content/drive/MyDrive/data/pytorchnn/words.txt')
     vocab_size = len(vocab.keys())
-
+    print(vocab_size)
     train_sents = load_sents('/content/drive/MyDrive/data/pytorchnn/train.txt')
 
     net = LanguageModel()
