@@ -162,10 +162,10 @@ class LanguageModel(nn.Module):
             return 0
 
 def main():
-    vocab = read_vocab('~/kaldi/egs/tedlium/s5_r3_prahlad/data/pytorchnn/words.txt')
+    vocab = read_vocab('data/pytorchnn/words.txt')
     vocab_size = len(vocab.keys())
     print(vocab_size)
-    train_sents = load_sents('~/kaldi/egs/tedlium/s5_r3_prahlad/data/pytorchnn/train.txt')
+    train_sents = load_sents('data/pytorchnn/train.txt')
 
     net = LanguageModel()
     optimizer = torch.optim.Adam(net.parameters(), lr=5e-3)
