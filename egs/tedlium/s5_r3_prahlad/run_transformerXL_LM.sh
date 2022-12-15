@@ -239,6 +239,20 @@ if [ $stage -le 19 ]; then
     suffix=$(basename $tnnlm_dir)
     output_dir=${decoding_dir}_$suffix
     
+    steps/pytorchnn/lmrescore_nbest_pytorchnn-XL.sh \
+        --cmd "$decode_cmd --max-jobs-run 1" \
+        --model-type $model_type \
+        --embedding_dim $embedding_dim \
+        --hidden_dim $hidden_dim \
+        --nlayers $nlayers \
+        --nhead $nhead \
+        --weight 0.7 \
+        --beam 4 \
+        --epsilon 0.5 \
+        --oov-symbol "'$oov'" \
+        $lang_dir $nn_model $vocab_data_dir/words.txt \
+        $data_dir $decoding_dir \
+        $output_dir
 
     steps/pytorchnn/lmrescore_lattice_pytorchnn-XL.sh \
         --cmd "$decode_cmd --max-jobs-run 1" \
@@ -282,6 +296,20 @@ if [ $stage -le 20 ]; then
     suffix=$(basename $tnnlm_dir)
     output_dir=${decoding_dir}_$suffix
     
+    steps/pytorchnn/lmrescore_nbest_pytorchnn-XL.sh \
+        --cmd "$decode_cmd --max-jobs-run 1" \
+        --model-type $model_type \
+        --embedding_dim $embedding_dim \
+        --hidden_dim $hidden_dim \
+        --nlayers $nlayers \
+        --nhead $nhead \
+        --weight 0.7 \
+        --beam 4 \
+        --epsilon 0.5 \
+        --oov-symbol "'$oov'" \
+        $lang_dir $nn_model $vocab_data_dir/words.txt \
+        $data_dir $decoding_dir \
+        $output_dir
 
     steps/pytorchnn/lmrescore_lattice_pytorchnn-XL.sh \
         --cmd "$decode_cmd --max-jobs-run 1" \
@@ -297,7 +325,7 @@ if [ $stage -le 20 ]; then
         $lang_dir $nn_model $vocab_data_dir/words.txt \
         $data_dir $decoding_dir \
         $output_dir
-
+        
   done
 fi
 
