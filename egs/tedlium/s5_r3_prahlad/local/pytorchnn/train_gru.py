@@ -182,7 +182,7 @@ def main():
 
     for j in range(epoch_num):
         loss_arr = []
-        for i, data in enumerate(get_batches("train", train_sents, vocab)):
+        for i, data in get_batches("train", train_sents, vocab).items():
             # convert numpy to torch.LongTensor
             # data['sent'] = torch.LongTensor(data['sent'])
             print(i, data)
