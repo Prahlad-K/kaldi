@@ -102,7 +102,7 @@ fi
 if [ $stage -le 2 ]; then
   echo "$0: computing neural LM scores of the minimal list of hypotheses."
   $cmd JOB=1:$nj $dir/log/compute_sentence_scores.JOB.log \
-    PYTHONPATH=steps/pytorchnn python3 steps/pytorchnn/compute_sentence_scores-XL.py \
+    PYTHONPATH=steps/pytorchnn python3 steps/pytorchnn/compute_sentence_scores-gcnn.py \
      --infile $paths/path.JOB.words_text \
      --outfile $scores/${model_type}_scores.JOB \
      --vocabulary $vocab \

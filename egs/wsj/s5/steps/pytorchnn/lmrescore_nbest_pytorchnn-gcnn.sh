@@ -187,7 +187,7 @@ fi
 if [ $stage -le 6 ]; then
   echo "$0: computing neural LM scores of the N-best list in parallel for each lattice."
   $cmd JOB=1:$nj $dir/log/compute_sentence_scores.JOB.log \
-    PYTHONPATH=steps/pytorchnn python3 steps/pytorchnn/compute_sentence_scores-XL.py \
+    PYTHONPATH=steps/pytorchnn python3 steps/pytorchnn/compute_sentence_scores-gcnn.py \
         --infile $adir.JOB/words_text \
         --outfile $adir.JOB/lmwt.nn \
         --vocabulary $vocab \
