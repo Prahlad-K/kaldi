@@ -164,15 +164,19 @@ class LanguageModel(nn.Module):
 def main():
     vocab = read_vocab('data/pytorchnn/words.txt')
     vocab_size = len(vocab.keys())
-    print(vocab_size)
+    print('Vocab size: ' , vocab_size)
+    print('Preparing training sentences.....')
     train_sents = load_sents('data/pytorchnn/train.txt')
+    print('Done. Number of training sentences: ', len(train_sents.items()))
 
+    print('Initializing Language Model....')
     net = LanguageModel()
     optimizer = torch.optim.Adam(net.parameters(), lr=5e-3)
     epoch_num = 100
     plot = PlotLosses()
 
     for j in range(epoch_num):
+        print('Epoch ', j, ':')
         loss_arr = []
         for i, data in enumerate(get_batches("train", train_sents, vocab)):
             # convert numpy to torch.LongTensor
