@@ -222,15 +222,15 @@ if [ $stage -le 18 ]; then
   # pk2743: Train the NN LM or if already trained proceed
   if $train_nnlm; then
     if [[ "$model" == "pytorch_transformer" ]]; then
-      echo "Training the Transformer NNLM"
+      echo "Training the Transformer NNLM............."
       #local/pytorchnn/run_nnlm.sh
     fi
     if [[ "$model" == "transformer_xl" ]]; then
-      echo "Training the Transformer-XL NNLM"
+      echo "Training the Transformer-XL NNLM............."
       #python3 local/pytorchnn/save_transformer_model.py
     fi
     if [[ "$model" == "gcnnlm" ]]; then
-      echo "Training the Gated Convolutional NNLM"
+      echo "Training the Gated Convolutional NNLM............."
       #python3 local/pytorchnn/save_fairseq_gcnn_model.py
     fi
   fi
@@ -266,33 +266,35 @@ if [ $stage -le 19 ]; then
       suffix=$(basename $tnnlm_dir)
       output_dir=${decoding_dir}_$suffix
       
-      steps/pytorchnn/lmrescore_nbest_pytorchnn.sh \
-          --cmd "$decode_cmd --max-jobs-run 1" \
-          --model-type $model_type \
-          --embedding_dim $embedding_dim \
-          --hidden_dim $hidden_dim \
-          --nlayers $nlayers \
-          --nhead $nhead \
-          --weight 0.7 \
-          --oov-symbol "'$oov'" \
-          $lang_dir $nn_model $vocab_data_dir/words.txt \
-          $data_dir $decoding_dir \
-          $output_dir
-
-      steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
-          --cmd "$decode_cmd --max-jobs-run 1" \
-          --model-type $model_type \
-          --embedding_dim $embedding_dim \
-          --hidden_dim $hidden_dim \
-          --nlayers $nlayers \
-          --nhead $nhead \
-          --weight 0.7 \
-          --beam 4 \
-          --epsilon 0.5 \
-          --oov-symbol "'$oov'" \
-          $lang_dir $nn_model $vocab_data_dir/words.txt \
-          $data_dir $decoding_dir \
-          $output_dir
+      if $nbest; then
+        steps/pytorchnn/lmrescore_nbest_pytorchnn.sh \
+            --cmd "$decode_cmd --max-jobs-run 1" \
+            --model-type $model_type \
+            --embedding_dim $embedding_dim \
+            --hidden_dim $hidden_dim \
+            --nlayers $nlayers \
+            --nhead $nhead \
+            --weight 0.7 \
+            --oov-symbol "'$oov'" \
+            $lang_dir $nn_model $vocab_data_dir/words.txt \
+            $data_dir $decoding_dir \
+            $output_dir
+      else
+        steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
+            --cmd "$decode_cmd --max-jobs-run 1" \
+            --model-type $model_type \
+            --embedding_dim $embedding_dim \
+            --hidden_dim $hidden_dim \
+            --nlayers $nlayers \
+            --nhead $nhead \
+            --weight 0.7 \
+            --beam 4 \
+            --epsilon 0.5 \
+            --oov-symbol "'$oov'" \
+            $lang_dir $nn_model $vocab_data_dir/words.txt \
+            $data_dir $decoding_dir \
+            $output_dir
+      fi
     done
   fi
   if [[ "$model" == "transformer_xl" ]]; then
@@ -324,7 +326,6 @@ if [ $stage -le 20 ]; then
 
   for dset in dev_clean_2; do
     data_dir=data/${dset}_hires
-    #decoding_dir=exp/chain_cleaned/tdnnf_1a/decode_${dset}
     decoding_dir=exp/tri3b/decode_tgsmall_$dset
     suffix=$(basename $tnnlm_dir)
     output_dir=${decoding_dir}_$suffix
