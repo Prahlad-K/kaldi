@@ -250,7 +250,7 @@ if [ $stage -le 19 ]; then
   if [[ "$model" == "pytorch_transformer" ]]; then
     echo "Decoding with the Transformer NNLM............."
 
-    # pk2743: Defining the Transformer NNLM model architecture
+    # pk2743: Defining the Transformer NNLM model architecture + other params
     model_type=Transformer
     embedding_dim=768
     hidden_dim=768
@@ -266,7 +266,7 @@ if [ $stage -le 19 ]; then
   if [[ "$model" == "transformer_xl" ]]; then
     echo "Decoding with the Transformer-XL NNLM............."
 
-    # pk2743: Defining the Transformer-XL NNLM model architecture
+    # pk2743: Defining the Transformer-XL NNLM model architecture + other params
     model_type=Transformer-XL
     embedding_dim=1024
     hidden_dim=4096
@@ -282,7 +282,7 @@ if [ $stage -le 19 ]; then
   if [[ "$model" == "gcnnlm" ]]; then
     echo "Decoding with the Gated Convolutional NNLM............."
 
-    # pk2743: Defining the Gated Convolutional NNLM Model Architecture
+    # pk2743: Defining the Gated Convolutional NNLM Model Architecture + other params
     model_type=GCNN
     embedding_dim=280
     hidden_dim=850
@@ -322,6 +322,7 @@ if [ $stage -le 19 ]; then
         --nhead $nhead \
         --weight 0.7 \
         --oov-symbol "'$oov'" \
+        --stage 7
         $lang_dir $nn_model $vocab_data_dir/words.txt \
         $data_dir $decoding_dir \
         $output_dir
