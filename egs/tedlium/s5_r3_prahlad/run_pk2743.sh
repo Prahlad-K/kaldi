@@ -223,15 +223,15 @@ if [ $stage -le 18 ]; then
   if $train_nnlm; then
     if [[ "$model" == "pytorch_transformer" ]]; then
       echo "Training the Transformer NNLM"
-      local/pytorchnn/run_nnlm.sh
+      #local/pytorchnn/run_nnlm.sh
     fi
     if [[ "$model" == "transformer_xl" ]]; then
       echo "Training the Transformer-XL NNLM"
-      python3 local/pytorchnn/save_transformer_model.py
+      #python3 local/pytorchnn/save_transformer_model.py
     fi
     if [[ "$model" == "gcnnlm" ]]; then
       echo "Training the Gated Convolutional NNLM"
-      python3 local/pytorchnn/save_fairseq_gcnn_model.py
+      #python3 local/pytorchnn/save_fairseq_gcnn_model.py
     fi
   fi
 fi
