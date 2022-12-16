@@ -274,6 +274,8 @@ if [ $stage -le 19 ]; then
     nhead=16
     pytorch_path=exp/transformer_xl
     nn_model=$pytorch_path/
+    nbest_script=lmrescore_nbest_pytorchnn-XL.sh
+    lattice_script=lmrescore_lattice_pytorchnn-XL.sh
     oov='<UNK>' # Symbol for out-of-vocabulary words
 
   fi
@@ -288,6 +290,8 @@ if [ $stage -le 19 ]; then
     nhead=16
     pytorch_path=exp/gcnnlm
     nn_model=$pytorch_path/
+    nbest_script=lmrescore_nbest_pytorchnn-gcnn.sh
+    lattice_script=lmrescore_lattice_pytorchnn-gcnn.sh
     oov='<UNK>' # Symbol for out-of-vocabulary words
   fi
   
@@ -337,7 +341,6 @@ if [ $stage -le 19 ]; then
         $data_dir $decoding_dir \
         $output_dir
   fi
-
 fi
 
 echo "$0: success."
