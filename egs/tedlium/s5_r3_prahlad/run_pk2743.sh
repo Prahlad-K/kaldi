@@ -293,6 +293,7 @@ if [ $stage -le 19 ]; then
           $lang_dir $nn_model $vocab_data_dir/words.txt \
           $data_dir $decoding_dir \
           $output_dir
+    done
   fi
   if [[ "$model" == "transformer_xl" ]]; then
     echo "Decoding with the Transformer-XL NNLM............."
@@ -300,7 +301,7 @@ if [ $stage -le 19 ]; then
   if [[ "$model" == "gcnnlm" ]]; then
     echo "Decoding with the Gated Convolutional NNLM............."
   fi
-  done
+  
 fi
 
 if [ $stage -le 20 ]; then
