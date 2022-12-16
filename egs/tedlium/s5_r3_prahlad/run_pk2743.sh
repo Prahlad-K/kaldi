@@ -219,76 +219,87 @@ fi
 
 if [ $stage -le 18 ]; then
   echo "Stage 18 start"
-  # Train Transformer LM or if already trained proceed
+  # pk2743: Train the NN LM or if already trained proceed
   if $train_nnlm; then
     if [[ "$model" == "pytorch_transformer" ]]; then
-      #local/pytorchnn/run_nnlm.sh
       echo "Training the Transformer NNLM"
+      local/pytorchnn/run_nnlm.sh
     fi
     if [[ "$model" == "transformer_xl" ]]; then
-      #local/pytorchnn/run_nnlm.sh
       echo "Training the Transformer-XL NNLM"
+      python3 local/pytorchnn/save_transformer_model.py
     fi
     if [[ "$model" == "gcnnlm" ]]; then
-      #local/pytorchnn/run_nnlm.sh
       echo "Training the Gated Convolutional NNLM"
+      python3 local/pytorchnn/save_fairseq_gcnn_model.py
     fi
   fi
 fi
 
 if [ $stage -le 19 ]; then
   echo "Stage 19 start"
-
   # Here we rescore the lattices generated at stage 17
-  tnnlm_dir=exp/pytorch_transformer
+
+  # pk2743: based on the options declared at the top of the script
+  # the decoding process is executed
+  tnnlm_dir=exp/$model
   lang_dir=data/lang_chain
   vocab_data_dir=data/pytorchnn
   ngram_order=4
 
-  model_type=Transformer # LSTM, GRU or Transformer
-  embedding_dim=768
-  hidden_dim=768
-  nlayers=8
-  nhead=8
-  pytorch_path=exp/pytorch_transformer
-  nn_model=$pytorch_path/model.pt
-  oov='<UNK>' # Symbol for out-of-vocabulary words
+  if [[ "$model" == "pytorch_transformer" ]]; then
+    echo "Decoding with the Transformer NNLM............."
 
-  for dset in test; do
-    data_dir=data/${dset}_hires
-    #decoding_dir=exp/chain_cleaned/tdnnf_1a/decode_${dset}
-    decoding_dir=exp/chain_cleaned_1d/tdnn1d_sp/decode_${dset}
-    suffix=$(basename $tnnlm_dir)
-    output_dir=${decoding_dir}_$suffix
-    
-    steps/pytorchnn/lmrescore_nbest_pytorchnn.sh \
-        --cmd "$decode_cmd --max-jobs-run 1" \
-        --model-type $model_type \
-        --embedding_dim $embedding_dim \
-        --hidden_dim $hidden_dim \
-        --nlayers $nlayers \
-        --nhead $nhead \
-        --weight 0.7 \
-        --oov-symbol "'$oov'" \
-        $lang_dir $nn_model $vocab_data_dir/words.txt \
-        $data_dir $decoding_dir \
-        $output_dir
+    # pk2743: Transformer NNLM model architecture
+    model_type=Transformer
+    embedding_dim=768
+    hidden_dim=768
+    nlayers=8
+    nhead=8
+    pytorch_path=exp/pytorch_transformer
+    nn_model=$pytorch_path/model.pt
+    oov='<UNK>' # Symbol for out-of-vocabulary words
 
-    steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
-        --cmd "$decode_cmd --max-jobs-run 1" \
-        --model-type $model_type \
-        --embedding_dim $embedding_dim \
-        --hidden_dim $hidden_dim \
-        --nlayers $nlayers \
-        --nhead $nhead \
-        --weight 0.7 \
-        --beam 4 \
-        --epsilon 0.5 \
-        --oov-symbol "'$oov'" \
-        $lang_dir $nn_model $vocab_data_dir/words.txt \
-        $data_dir $decoding_dir \
-        $output_dir
+    for dset in test; do
+      data_dir=data/${dset}_hires
+      decoding_dir=exp/chain_cleaned_1d/tdnn1d_sp/decode_${dset}
+      suffix=$(basename $tnnlm_dir)
+      output_dir=${decoding_dir}_$suffix
+      
+      steps/pytorchnn/lmrescore_nbest_pytorchnn.sh \
+          --cmd "$decode_cmd --max-jobs-run 1" \
+          --model-type $model_type \
+          --embedding_dim $embedding_dim \
+          --hidden_dim $hidden_dim \
+          --nlayers $nlayers \
+          --nhead $nhead \
+          --weight 0.7 \
+          --oov-symbol "'$oov'" \
+          $lang_dir $nn_model $vocab_data_dir/words.txt \
+          $data_dir $decoding_dir \
+          $output_dir
 
+      steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
+          --cmd "$decode_cmd --max-jobs-run 1" \
+          --model-type $model_type \
+          --embedding_dim $embedding_dim \
+          --hidden_dim $hidden_dim \
+          --nlayers $nlayers \
+          --nhead $nhead \
+          --weight 0.7 \
+          --beam 4 \
+          --epsilon 0.5 \
+          --oov-symbol "'$oov'" \
+          $lang_dir $nn_model $vocab_data_dir/words.txt \
+          $data_dir $decoding_dir \
+          $output_dir
+  fi
+  if [[ "$model" == "transformer_xl" ]]; then
+    echo "Decoding with the Transformer-XL NNLM............."
+  fi
+  if [[ "$model" == "gcnnlm" ]]; then
+    echo "Decoding with the Gated Convolutional NNLM............."
+  fi
   done
 fi
 
