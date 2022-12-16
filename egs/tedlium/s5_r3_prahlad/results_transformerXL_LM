@@ -1,0 +1,120 @@
+N-best lists
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_10
+%WER 9.64 [ 2652 / 27500, 402 ins, 597 del, 1653 sub ]
+%SER 82.08 [ 948 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_11
+%WER 9.66 [ 2656 / 27500, 394 ins, 621 del, 1641 sub ]
+%SER 82.08 [ 948 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_12
+%WER 9.76 [ 2683 / 27500, 393 ins, 643 del, 1647 sub ]
+%SER 83.03 [ 959 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_13
+%WER 9.83 [ 2703 / 27500, 391 ins, 659 del, 1653 sub ]
+%SER 83.72 [ 967 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_14
+%WER 9.83 [ 2703 / 27500, 385 ins, 670 del, 1648 sub ]
+%SER 83.98 [ 970 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_15
+%WER 9.87 [ 2713 / 27500, 382 ins, 689 del, 1642 sub ]
+%SER 84.59 [ 977 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_16
+%WER 9.91 [ 2725 / 27500, 383 ins, 695 del, 1647 sub ]
+%SER 84.85 [ 980 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_17
+%WER 9.93 [ 2732 / 27500, 383 ins, 707 del, 1642 sub ]
+%SER 85.02 [ 982 / 1155 ]
+
+Lattice rescoring
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_10
+%WER 9.64 [ 2652 / 27500, 402 ins, 597 del, 1653 sub ]
+%SER 82.08 [ 948 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_11
+%WER 9.66 [ 2656 / 27500, 394 ins, 621 del, 1641 sub ]
+%SER 82.08 [ 948 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_12
+%WER 9.76 [ 2683 / 27500, 393 ins, 643 del, 1647 sub ]
+%SER 83.03 [ 959 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_13
+%WER 9.83 [ 2703 / 27500, 391 ins, 659 del, 1653 sub ]
+%SER 83.72 [ 967 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_14
+%WER 9.83 [ 2703 / 27500, 385 ins, 670 del, 1648 sub ]
+%SER 83.98 [ 970 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_15
+%WER 9.87 [ 2713 / 27500, 382 ins, 689 del, 1642 sub ]
+%SER 84.59 [ 977 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_16
+%WER 9.91 [ 2725 / 27500, 383 ins, 695 del, 1647 sub ]
+%SER 84.85 [ 980 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_17
+%WER 9.93 [ 2732 / 27500, 383 ins, 707 del, 1642 sub ]
+%SER 85.02 [ 982 / 1155 ]
+
+Librispeech: N-best lists
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_10
+%WER 22.97 [ 4625 / 20138, 530 ins, 522 del, 3573 sub ]
+%SER 97.80 [ 1065 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_11
+%WER 22.87 [ 4606 / 20138, 521 ins, 527 del, 3558 sub ]
+%SER 97.89 [ 1066 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_12
+%WER 22.82 [ 4595 / 20138, 516 ins, 535 del, 3544 sub ]
+%SER 97.89 [ 1066 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_13
+%WER 22.71 [ 4574 / 20138, 499 ins, 541 del, 3534 sub ]
+%SER 97.89 [ 1066 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_14
+%WER 22.62 [ 4555 / 20138, 493 ins, 543 del, 3519 sub ]
+%SER 97.80 [ 1065 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_15
+%WER 22.48 [ 4528 / 20138, 487 ins, 548 del, 3493 sub ]
+%SER 97.61 [ 1063 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_16
+%WER 22.54 [ 4539 / 20138, 484 ins, 557 del, 3498 sub ]
+%SER 97.61 [ 1063 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_17
+%WER 22.52 [ 4536 / 20138, 483 ins, 561 del, 3492 sub ]
+%SER 97.61 [ 1063 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_7
+%WER 23.22 [ 4677 / 20138, 577 ins, 490 del, 3610 sub ]
+%SER 98.07 [ 1068 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_8
+%WER 23.08 [ 4648 / 20138, 557 ins, 501 del, 3590 sub ]
+%SER 98.07 [ 1068 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_9
+%WER 22.98 [ 4627 / 20138, 538 ins, 511 del, 3578 sub ]
+%SER 97.98 [ 1067 / 1089 ]
+
+Librispeech: Lattice rescoring
+%WER 28.89 [ 5817 / 20138, 701 ins, 642 del, 4474 sub ]
+%SER 94.58 [ 1030 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_11
+%WER 28.78 [ 5796 / 20138, 679 ins, 659 del, 4458 sub ]
+%SER 94.58 [ 1030 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_12
+%WER 28.68 [ 5775 / 20138, 658 ins, 680 del, 4437 sub ]
+%SER 94.49 [ 1029 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_13
+%WER 28.61 [ 5762 / 20138, 648 ins, 697 del, 4417 sub ]
+%SER 94.49 [ 1029 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_14
+%WER 28.46 [ 5731 / 20138, 622 ins, 707 del, 4402 sub ]
+%SER 94.31 [ 1027 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_15
+%WER 28.30 [ 5699 / 20138, 609 ins, 718 del, 4372 sub ]
+%SER 94.40 [ 1028 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_16
+%WER 28.21 [ 5681 / 20138, 597 ins, 729 del, 4355 sub ]
+%SER 94.40 [ 1028 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_17
+%WER 28.06 [ 5650 / 20138, 585 ins, 734 del, 4331 sub ]
+%SER 94.40 [ 1028 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_7
+%WER 29.54 [ 5949 / 20138, 789 ins, 594 del, 4566 sub ]
+%SER 94.77 [ 1032 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_8
+%WER 29.21 [ 5883 / 20138, 750 ins, 612 del, 4521 sub ]
+%SER 94.67 [ 1031 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_9
+%WER 29.08 [ 5857 / 20138, 722 ins, 629 del, 4506 sub ]
+%SER 94.77 [ 1032 / 1089 ]

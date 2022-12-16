@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-#
+# *********** AUTHOR: Prahlad Koratamaddi, UNI: pk2743. 18th December, 2022 ****************
+# Extending the work done by the following team of TED-LIUM
+
+
 # Based mostly on the Switchboard recipe. The training database is TED-LIUM,
 # it consists of TED talks with cleaned automatic transcripts:
 #
@@ -28,8 +31,15 @@ nj=35
 decode_nj=38   # note: should not be >38 which is the number of speakers in the dev set
                # after applying --seconds-per-spk-max 180.  We decode with 4 threads, so
                # this will be too many jobs if you're using run.pl.
-stage=19
-train_transformer_nnlm=true
+
+stage=19                  # proceeds to decoding at the last stage
+
+# pk2743: including the following additional options
+model="pytorch_transformer" # can choose between pytorch_transformer [default] or transformer_xl or gcnnlm
+nbest=true                # if true [default], does nbest list rescoring otherwise, does pruning + lattice rescoring 
+train_nnlm=false          # if false [default] proceeds to decoding without training the NNLM
+decode_on_tedlium=true    # if true [default], decodes on the tedlium test dataset, otherwise on the LibriSpeech test-other dataset         
+
 train_lm=false
 
 . utils/parse_options.sh # accept options
@@ -210,8 +220,11 @@ fi
 if [ $stage -le 18 ]; then
   echo "Stage 18 start"
   # Train Transformer LM or if already trained proceed
-  if $train_transformer_nnlm; then
-    local/pytorchnn/run_nnlm.sh
+  if $train_nnlm; then
+    if [[ "$model" == "pytorch_transformer" ]] then
+      #local/pytorchnn/run_nnlm.sh
+      echo "trained the nnlm already!"
+    fi
   fi
 fi
 
