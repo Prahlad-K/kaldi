@@ -322,6 +322,7 @@ if [ $stage -le 19 ]; then
         --nhead $nhead \
         --weight 0.7 \
         --oov-symbol "'$oov'" \
+        --stage 1 \
         $lang_dir $nn_model $vocab_data_dir/words.txt \
         $data_dir $decoding_dir \
         $output_dir
