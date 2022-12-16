@@ -32,7 +32,7 @@ decode_nj=38   # note: should not be >38 which is the number of speakers in the 
                # after applying --seconds-per-spk-max 180.  We decode with 4 threads, so
                # this will be too many jobs if you're using run.pl.
 
-stage=19                  # proceeds to decoding at the last stage
+stage=18                  # proceeds to decoding at the last stage
 
 # pk2743: including the following additional options
 model="pytorch_transformer" # can choose between pytorch_transformer [default] or transformer_xl or gcnnlm
