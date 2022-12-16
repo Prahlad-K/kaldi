@@ -314,7 +314,7 @@ if [ $stage -le 19 ]; then
   # pk2743: the dataset params are also defined, proceeding to decode!
   if $nbest; then
     steps/pytorchnn/$nbest_script \
-        --cmd "$decode_cmd --max-jobs-run 1" \
+        --cmd "$decode_cmd" \
         --model-type $model_type \
         --embedding_dim $embedding_dim \
         --hidden_dim $hidden_dim \
@@ -338,6 +338,7 @@ if [ $stage -le 19 ]; then
         --beam 4 \
         --epsilon 0.5 \
         --oov-symbol "'$oov'" \
+        --stage 1 \
         $lang_dir $nn_model $vocab_data_dir/words.txt \
         $data_dir $decoding_dir \
         $output_dir
