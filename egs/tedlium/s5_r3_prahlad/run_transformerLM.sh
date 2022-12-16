@@ -221,7 +221,7 @@ if [ $stage -le 18 ]; then
   echo "Stage 18 start"
   # Train Transformer LM or if already trained proceed
   if $train_nnlm; then
-    if [[ "$model" == "pytorch_transformer" ]] then
+    if [[ "$model" == "pytorch_transformer" ]]; then
       #local/pytorchnn/run_nnlm.sh
       echo "trained the nnlm already!"
     fi
