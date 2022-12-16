@@ -37,7 +37,7 @@ stage=18                  # proceeds to decoding at the last stage
 # pk2743: including the following additional options
 model="pytorch_transformer" # can choose between pytorch_transformer [default] or transformer_xl or gcnnlm
 nbest=true                # if true [default], does nbest list rescoring otherwise, does pruning + lattice rescoring 
-train_nnlm=false          # if false [default] proceeds to decoding without training the NNLM
+train_nnlm=true          # if false [default] proceeds to decoding without training the NNLM
 decode_on_tedlium=true    # if true [default], decodes on the tedlium test dataset, otherwise on the LibriSpeech test-other dataset         
 
 train_lm=false
