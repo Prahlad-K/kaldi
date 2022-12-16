@@ -258,6 +258,8 @@ if [ $stage -le 19 ]; then
     nhead=8
     pytorch_path=exp/pytorch_transformer
     nn_model=$pytorch_path/model.pt
+    nbest_script=lmrescore_nbest_pytorchnn.sh
+    lattice_script=lmrescore_lattice_pytorchnn.sh
     oov='<UNK>' # Symbol for out-of-vocabulary words
 
   fi
@@ -307,7 +309,7 @@ if [ $stage -le 19 ]; then
 
   # pk2743: the dataset params are also defined, proceeding to decode!
   if $nbest; then
-    steps/pytorchnn/lmrescore_nbest_pytorchnn.sh \
+    steps/pytorchnn/$nbest_script \
         --cmd "$decode_cmd --max-jobs-run 1" \
         --model-type $model_type \
         --embedding_dim $embedding_dim \
@@ -320,7 +322,7 @@ if [ $stage -le 19 ]; then
         $data_dir $decoding_dir \
         $output_dir
   else
-    steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
+    steps/pytorchnn/$lattice_script \
         --cmd "$decode_cmd --max-jobs-run 1" \
         --model-type $model_type \
         --embedding_dim $embedding_dim \
