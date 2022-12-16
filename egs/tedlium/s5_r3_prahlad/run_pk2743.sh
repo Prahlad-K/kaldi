@@ -314,7 +314,7 @@ if [ $stage -le 19 ]; then
   # pk2743: the dataset params are also defined, proceeding to decode!
   if $nbest; then
     steps/pytorchnn/$nbest_script \
-        --cmd "$decode_cmd" \
+        --cmd "$decode_cmd --max-jobs-run 2" \
         --model-type $model_type \
         --embedding_dim $embedding_dim \
         --hidden_dim $hidden_dim \
