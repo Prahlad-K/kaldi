@@ -250,7 +250,7 @@ if [ $stage -le 19 ]; then
   if [[ "$model" == "pytorch_transformer" ]]; then
     echo "Decoding with the Transformer NNLM............."
 
-    # pk2743: Transformer NNLM model architecture
+    # pk2743: Defining the Transformer NNLM model architecture
     model_type=Transformer
     embedding_dim=768
     hidden_dim=768
@@ -260,76 +260,53 @@ if [ $stage -le 19 ]; then
     nn_model=$pytorch_path/model.pt
     oov='<UNK>' # Symbol for out-of-vocabulary words
 
-    for dset in test; do
-      data_dir=data/${dset}_hires
-      decoding_dir=exp/chain_cleaned_1d/tdnn1d_sp/decode_${dset}
-      suffix=$(basename $tnnlm_dir)
-      output_dir=${decoding_dir}_$suffix
-      
-      if $nbest; then
-        steps/pytorchnn/lmrescore_nbest_pytorchnn.sh \
-            --cmd "$decode_cmd --max-jobs-run 1" \
-            --model-type $model_type \
-            --embedding_dim $embedding_dim \
-            --hidden_dim $hidden_dim \
-            --nlayers $nlayers \
-            --nhead $nhead \
-            --weight 0.7 \
-            --oov-symbol "'$oov'" \
-            $lang_dir $nn_model $vocab_data_dir/words.txt \
-            $data_dir $decoding_dir \
-            $output_dir
-      else
-        steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
-            --cmd "$decode_cmd --max-jobs-run 1" \
-            --model-type $model_type \
-            --embedding_dim $embedding_dim \
-            --hidden_dim $hidden_dim \
-            --nlayers $nlayers \
-            --nhead $nhead \
-            --weight 0.7 \
-            --beam 4 \
-            --epsilon 0.5 \
-            --oov-symbol "'$oov'" \
-            $lang_dir $nn_model $vocab_data_dir/words.txt \
-            $data_dir $decoding_dir \
-            $output_dir
-      fi
-    done
   fi
   if [[ "$model" == "transformer_xl" ]]; then
     echo "Decoding with the Transformer-XL NNLM............."
+
+    # pk2743: Defining the Transformer-XL NNLM model architecture
+    model_type=Transformer-XL
+    embedding_dim=1024
+    hidden_dim=4096
+    nlayers=18
+    nhead=16
+    pytorch_path=exp/transformer_xl
+    nn_model=$pytorch_path/
+    oov='<UNK>' # Symbol for out-of-vocabulary words
+
   fi
   if [[ "$model" == "gcnnlm" ]]; then
     echo "Decoding with the Gated Convolutional NNLM............."
+
+    # pk2743: Defining the Gated Convolutional NNLM Model Architecture
+    model_type=GCNN
+    embedding_dim=280
+    hidden_dim=850
+    nlayers=8
+    nhead=16
+    pytorch_path=exp/gcnnlm
+    nn_model=$pytorch_path/
+    oov='<UNK>' # Symbol for out-of-vocabulary words
   fi
   
-fi
-
-if [ $stage -le 20 ]; then
-  echo "Stage 20 start"
-
-  # Here we rescore the lattices generated from the Librispeech model
-  tnnlm_dir=exp/pytorch_transformer
-  lang_dir=data/lang_test_tgsmall
-  vocab_data_dir=data/pytorchnn
-  ngram_order=4
-
-  model_type=Transformer # LSTM, GRU or Transformer
-  embedding_dim=768
-  hidden_dim=768
-  nlayers=8
-  nhead=8
-  pytorch_path=exp/pytorch_transformer
-  nn_model=$pytorch_path/model.pt
-  oov='<UNK>' # Symbol for out-of-vocabulary words
-
-  for dset in dev_clean_2; do
+  # pk2743: The architecture has been defined, proceeding to prepare params related to dataset
+  if $decode_on_tedlium; then
+    dset=test
+    data_dir=data/${dset}_hires
+    decoding_dir=exp/chain_cleaned_1d/tdnn1d_sp/decode_${dset}
+    suffix=$(basename $tnnlm_dir)
+    output_dir=${decoding_dir}_$suffix
+  else
+    # must decode on librispeech!
+    dset=dev_clean_2
     data_dir=data/${dset}_hires
     decoding_dir=exp/tri3b/decode_tgsmall_$dset
     suffix=$(basename $tnnlm_dir)
     output_dir=${decoding_dir}_$suffix
-    
+  fi
+
+  # pk2743: the dataset params are also defined, proceeding to decode!
+  if $nbest; then
     steps/pytorchnn/lmrescore_nbest_pytorchnn.sh \
         --cmd "$decode_cmd --max-jobs-run 1" \
         --model-type $model_type \
@@ -342,7 +319,7 @@ if [ $stage -le 20 ]; then
         $lang_dir $nn_model $vocab_data_dir/words.txt \
         $data_dir $decoding_dir \
         $output_dir
-
+  else
     steps/pytorchnn/lmrescore_lattice_pytorchnn.sh \
         --cmd "$decode_cmd --max-jobs-run 1" \
         --model-type $model_type \
@@ -357,10 +334,9 @@ if [ $stage -le 20 ]; then
         $lang_dir $nn_model $vocab_data_dir/words.txt \
         $data_dir $decoding_dir \
         $output_dir
+  fi
 
-  done
 fi
-
 
 echo "$0: success."
 exit 0
