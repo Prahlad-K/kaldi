@@ -16,7 +16,7 @@ from collections import defaultdict
 import numpy as np
 import torch
 import torch.nn as nn
-from transformers import BertTokenizer, BertLMHeadModel
+from transformers import BertTokenizer, AutoModelForCausalLM
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 def load_sents(path):
@@ -98,31 +98,7 @@ def get_input_and_target(args, hyps, tokenizer, vocab):
     inputs = []
     for hyp in hyps:
         input_ids = tokenizer(args.sent_boundary + ' ' + hyp, return_tensors="pt").to(device)
-        # input_ids, output_ids = [], []
-        # for word in input_string.split():
-        #     try:
-        #         input_ids.append(vocab[word])
-        #     except KeyError:
-        #         input_ids.append(vocab[args.oov])
-        # for word in output_string.split():
-        #     try:
-        #         output_ids.append(vocab[word])
-        #     except KeyError:
-        #         output_ids.append(vocab[args.oov])
         inputs.append(input_ids)
-
-    # batch_lens = [len(seq) for seq in inputs]
-    #seq_lens = torch.LongTensor(batch_lens)
-    # max_len = max(batch_lens)
-
-    # # Zero padding for input and target sequences.
-    # data = torch.LongTensor(batch_size, max_len).zero_()
-    # target = torch.LongTensor(batch_size, max_len).zero_()
-    # for idx, seq_len in enumerate(batch_lens):
-    #     data[idx, :seq_len] = torch.LongTensor(inputs[idx])
-    #     target[idx, :seq_len] = torch.LongTensor(outputs[idx])
-    # data = data.t().contiguous()
-    # target = target.t().contiguous().view(-1)
     return inputs
 
 
@@ -150,7 +126,6 @@ def compute_sentence_score(model, criterion, ntokens, inputs,
         losses = []
         past_key_values = None
         for input_tokenizer in inputs:
-            print(input_tokenizer)
             output = model(**input_tokenizer, labels=input_tokenizer['input_ids'], past_key_values=past_key_values)
             past_key_values = output.past_key_values
             losses.append(output.logits.cpu().detach().flatten().numpy())
@@ -262,7 +237,7 @@ def main():
     ntokens = len(vocab)
     
     print("Load GCNN model.")
-    model = BertLMHeadModel.from_pretrained(args.model_path).to(device)
+    model = AutoModelForCausalLM.from_pretrained(args.model_path).to(device)
     tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
 
     criterion = nn.CrossEntropyLoss(reduction='none')
