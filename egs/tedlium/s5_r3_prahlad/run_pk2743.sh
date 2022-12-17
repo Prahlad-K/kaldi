@@ -312,7 +312,7 @@ if [ $stage -le 19 ]; then
 
   # pk2743: the dataset params are also defined, proceeding to decode!
   if $nbest; then
-    output_dir=${decoding_dir}_$suffix_nbest
+    output_dir=${decoding_dir}_${suffix}_nbest
     steps/pytorchnn/$nbest_script \
         --cmd "$decode_cmd --max-jobs-run 1" \
         --model-type $model_type \
@@ -327,7 +327,7 @@ if [ $stage -le 19 ]; then
         $data_dir $decoding_dir \
         $output_dir
   else
-    output_dir=${decoding_dir}_$suffix_lattice
+    output_dir=${decoding_dir}_${suffix}_lattice
     steps/pytorchnn/$lattice_script \
         --cmd "$decode_cmd --max-jobs-run 1" \
         --model-type $model_type \
