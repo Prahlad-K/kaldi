@@ -301,7 +301,6 @@ if [ $stage -le 19 ]; then
     data_dir=data/${dset}_hires
     decoding_dir=exp/chain_cleaned_1d/tdnn1d_sp/decode_${dset}
     suffix=$(basename $tnnlm_dir)
-    output_dir=${decoding_dir}_$suffix
   else
     # must decode on librispeech!
     dset=dev_clean_2
@@ -309,11 +308,11 @@ if [ $stage -le 19 ]; then
     data_dir=data/${dset}_hires
     decoding_dir=exp/tri3b/decode_tgsmall_$dset
     suffix=$(basename $tnnlm_dir)
-    output_dir=${decoding_dir}_$suffix
   fi
 
   # pk2743: the dataset params are also defined, proceeding to decode!
   if $nbest; then
+    output_dir=${decoding_dir}_$suffix_nbest
     steps/pytorchnn/$nbest_script \
         --cmd "$decode_cmd --max-jobs-run 1" \
         --model-type $model_type \
@@ -328,6 +327,7 @@ if [ $stage -le 19 ]; then
         $data_dir $decoding_dir \
         $output_dir
   else
+    output_dir=${decoding_dir}_$suffix_lattice
     steps/pytorchnn/$lattice_script \
         --cmd "$decode_cmd --max-jobs-run 1" \
         --model-type $model_type \
