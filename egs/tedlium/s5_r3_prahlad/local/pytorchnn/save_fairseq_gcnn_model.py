@@ -1,6 +1,6 @@
-from transformers import AutoModelForCausalLM
+from transformers import BlenderbotSmallForCausalLM
 
 # Get the model online
-model = AutoModelForCausalLM.from_pretrained("facebook/blenderbot_small-90M")
+model = BlenderbotSmallForCausalLM.from_pretrained("facebook/blenderbot_small-90M")
 # Save the pretrained model
-AutoModelForCausalLM.save_pretrained(model, 'exp/gcnnlm/')
+BlenderbotSmallForCausalLM.save_pretrained(model, 'exp/gcnnlm/')
