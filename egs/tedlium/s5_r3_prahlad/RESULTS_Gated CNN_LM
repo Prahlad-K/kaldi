@@ -1,33 +1,7 @@
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm/wer_10
-%WER 9.57 [ 2632 / 27500, 505 ins, 466 del, 1661 sub ]
-%SER 77.49 [ 895 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm/wer_11
-%WER 9.57 [ 2632 / 27500, 505 ins, 466 del, 1661 sub ]
-%SER 77.49 [ 895 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm/wer_12
-%WER 9.57 [ 2632 / 27500, 505 ins, 466 del, 1661 sub ]
-%SER 77.49 [ 895 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm/wer_13
-%WER 9.57 [ 2632 / 27500, 505 ins, 466 del, 1661 sub ]
-%SER 77.49 [ 895 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm/wer_14
-%WER 9.57 [ 2632 / 27500, 505 ins, 466 del, 1661 sub ]
-%SER 77.49 [ 895 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm/wer_15
-%WER 9.57 [ 2632 / 27500, 505 ins, 466 del, 1661 sub ]
-%SER 77.49 [ 895 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm/wer_16
-%WER 9.57 [ 2632 / 27500, 505 ins, 466 del, 1661 sub ]
-%SER 77.49 [ 895 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm/wer_17
-%WER 9.57 [ 2632 / 27500, 505 ins, 466 del, 1661 sub ]
-%SER 77.49 [ 895 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm/wer_7
-%WER 9.57 [ 2632 / 27500, 505 ins, 466 del, 1661 sub ]
-%SER 77.49 [ 895 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm/wer_8
-%WER 9.57 [ 2632 / 27500, 505 ins, 466 del, 1661 sub ]
-%SER 77.49 [ 895 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm/wer_9
-%WER 9.57 [ 2632 / 27500, 505 ins, 466 del, 1661 sub ]
-%SER 77.49 [ 895 / 1155 ]
+N-best - TED-LIUM: 
+
+Lattice - TED-LIUM:
+
+N-best - Librispeech:
+
+Lattice - Librispeech:
