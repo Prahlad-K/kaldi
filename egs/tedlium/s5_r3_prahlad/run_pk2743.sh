@@ -227,11 +227,11 @@ if [ $stage -le 18 ]; then
     fi
     if [[ "$model" == "transformer_xl" ]]; then
       echo "Training the Transformer-XL NNLM............."
-      #python3 local/pytorchnn/save_transformer_model.py
+      python3 local/pytorchnn/save_transformer_model.py
     fi
     if [[ "$model" == "gcnnlm" ]]; then
       echo "Training the Gated Convolutional NNLM............."
-      #python3 local/pytorchnn/save_fairseq_gcnn_model.py
+      python3 local/pytorchnn/save_fairseq_gcnn_model.py
     fi
   fi
 fi
@@ -314,7 +314,7 @@ if [ $stage -le 19 ]; then
   # pk2743: the dataset params are also defined, proceeding to decode!
   if $nbest; then
     steps/pytorchnn/$nbest_script \
-        --cmd "$decode_cmd --max-jobs-run 2" \
+        --cmd "$decode_cmd --max-jobs-run 1" \
         --model-type $model_type \
         --embedding_dim $embedding_dim \
         --hidden_dim $hidden_dim \
