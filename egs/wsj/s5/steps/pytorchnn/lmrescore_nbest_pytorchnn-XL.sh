@@ -23,7 +23,7 @@ use_phi=false  # This is kind of an obscure option.  If true, we'll remove the o
   # if the lattices came directly from decoding.  This won't actually make much
   # difference (if any) to WER, it's more so we know we are doing the right thing.
 test=false # Activate a testing option.
-stage=7 # Stage of this script, for partial reruns.
+stage=1 # Stage of this script, for partial reruns.
 skip_scoring=false
 keep_ali=true
 # End configuration section.
