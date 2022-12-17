@@ -238,7 +238,7 @@ def main():
     
     print("Load GCNN model.")
     model = AutoModelForCausalLM.from_pretrained(args.model_path).to(device)
-    tokenizer = AutoTokenizer.from_pretrained("blenderbot-small")
+    tokenizer = AutoTokenizer.from_pretrained(args.model_path + '/tokenizer')
 
     criterion = nn.CrossEntropyLoss(reduction='none')
     print("Load input word hypotheses.")
