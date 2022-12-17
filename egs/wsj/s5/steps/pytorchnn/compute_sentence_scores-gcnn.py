@@ -16,7 +16,7 @@ from collections import defaultdict
 import numpy as np
 import torch
 import torch.nn as nn
-from transformers import BertTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 def load_sents(path):
@@ -238,7 +238,7 @@ def main():
     
     print("Load GCNN model.")
     model = AutoModelForCausalLM.from_pretrained(args.model_path).to(device)
-    tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
+    tokenizer = AutoTokenizer.from_pretrained("blenderbot-small")
 
     criterion = nn.CrossEntropyLoss(reduction='none')
     print("Load input word hypotheses.")

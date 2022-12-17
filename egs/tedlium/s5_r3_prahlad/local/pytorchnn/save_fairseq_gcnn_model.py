@@ -1,6 +1,6 @@
-from transformers import BertLMHeadModel
+from transformers import AutoModelForCausalLM
 
 # Get the model online
-model = BertLMHeadModel.from_pretrained("bert-base-uncased", is_decoder=True)
+model = AutoModelForCausalLM.from_pretrained("facebook/blenderbot_small-90M")
 # Save the pretrained model
-BertLMHeadModel.save_pretrained(model, 'exp/gcnnlm/')
+AutoModelForCausalLM.save_pretrained(model, 'exp/gcnnlm/')
