@@ -243,7 +243,6 @@ if [ $stage -le 19 ]; then
   # pk2743: based on the options declared at the top of the script
   # the decoding process is executed
   tnnlm_dir=exp/$model
-  lang_dir=data/lang_chain
   vocab_data_dir=data/pytorchnn
   ngram_order=4
 
@@ -298,6 +297,7 @@ if [ $stage -le 19 ]; then
   # pk2743: The architecture has been defined, proceeding to prepare params related to dataset
   if $decode_on_tedlium; then
     dset=test
+    lang_dir=data/lang_chain
     data_dir=data/${dset}_hires
     decoding_dir=exp/chain_cleaned_1d/tdnn1d_sp/decode_${dset}
     suffix=$(basename $tnnlm_dir)
@@ -305,6 +305,7 @@ if [ $stage -le 19 ]; then
   else
     # must decode on librispeech!
     dset=dev_clean_2
+    lang_dir=data/lang_test_tgsmall
     data_dir=data/${dset}_hires
     decoding_dir=exp/tri3b/decode_tgsmall_$dset
     suffix=$(basename $tnnlm_dir)

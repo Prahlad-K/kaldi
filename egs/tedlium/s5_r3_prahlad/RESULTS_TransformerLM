@@ -1,3 +1,39 @@
+N-best - TED-LIUM
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer/wer_10
+%WER 7.32 [ 2014 / 27500, 304 ins, 610 del, 1100 sub ]
+%SER 63.72 [ 736 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer/wer_11
+%WER 7.39 [ 2032 / 27500, 300 ins, 643 del, 1089 sub ]
+%SER 63.64 [ 735 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer/wer_12
+%WER 7.47 [ 2054 / 27500, 305 ins, 658 del, 1091 sub ]
+%SER 63.90 [ 738 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer/wer_13
+%WER 7.56 [ 2080 / 27500, 306 ins, 678 del, 1096 sub ]
+%SER 64.16 [ 741 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer/wer_14
+%WER 7.58 [ 2084 / 27500, 301 ins, 690 del, 1093 sub ]
+%SER 64.50 [ 745 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer/wer_15
+%WER 7.63 [ 2099 / 27500, 304 ins, 698 del, 1097 sub ]
+%SER 65.19 [ 753 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer/wer_16
+%WER 7.71 [ 2121 / 27500, 306 ins, 714 del, 1101 sub ]
+%SER 65.28 [ 754 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer/wer_17
+%WER 7.72 [ 2123 / 27500, 301 ins, 724 del, 1098 sub ]
+%SER 65.63 [ 758 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer/wer_7
+%WER 7.32 [ 2014 / 27500, 335 ins, 508 del, 1171 sub ]
+%SER 63.03 [ 728 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer/wer_8
+%WER 7.20 [ 1979 / 27500, 319 ins, 533 del, 1127 sub ]
+%SER 62.68 [ 724 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer/wer_9
+%WER 7.24 [ 1991 / 27500, 310 ins, 571 del, 1110 sub ]
+%SER 63.29 [ 731 / 1155 ]
+
+
 exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_pytorch_transformer/wer_10
 %WER 6.82 [ 1212 / 17783, 207 ins, 309 del, 696 sub ]
 %SER 68.64 [ 348 / 507 ]
