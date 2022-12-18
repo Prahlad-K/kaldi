@@ -1,11 +1,11 @@
-from transformers import PreTrainedModel, PreTrainedTokenizer
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
 
 # Get the model online
-model = PreTrainedModel.from_pretrained("prajjwal1/bert-small")
+model = GPT2LMHeadModel.from_pretrained("distilgpt2")
 # Save the pretrained model
-PreTrainedModel.save_pretrained(model, 'exp/gcnnlm/')
+GPT2LMHeadModel.save_pretrained(model, 'exp/gcnnlm/')
 
 # Get the tokenizer online
-tokenizer = PreTrainedTokenizer.from_pretrained("prajjwal1/bert-small")
+tokenizer = GPT2Tokenizer.from_pretrained("distilgpt2")
 # Save the pretrained tokenizer
-PreTrainedTokenizer.save_pretrained(tokenizer, 'exp/gcnnlm/tokenizer/')
+GPT2Tokenizer.save_pretrained(tokenizer, 'exp/gcnnlm/tokenizer/')

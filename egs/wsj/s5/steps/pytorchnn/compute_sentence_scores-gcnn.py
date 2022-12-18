@@ -16,7 +16,7 @@ from collections import defaultdict
 import numpy as np
 import torch
 import torch.nn as nn
-from transformers import AutoTokenizer, AutoModel
+from transformers import AutoTokenizer, AutoModelForCausalLM
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 def load_sents(path):
@@ -126,7 +126,7 @@ def compute_sentence_score(model, criterion, ntokens, inputs,
         losses = []
         #past_key_values = None
         for input_tokenizer in inputs:
-            output = model(**input_tokenizer)
+            output = model(**input_tokenizer, labels=input_tokenizer['input_ids'])
             #past_key_values = output.past_key_values
             losses.append(output.logits.cpu().detach().flatten().numpy())
 
