@@ -104,35 +104,36 @@ exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_nbest/wer_9
 %SER 97.98 [ 1067 / 1089 ]
 
 Lattice Rescoring - LibriSpeech:
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_lattice/wer_10
 %WER 28.89 [ 5817 / 20138, 701 ins, 642 del, 4474 sub ]
 %SER 94.58 [ 1030 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_11
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_lattice/wer_11
 %WER 28.78 [ 5796 / 20138, 679 ins, 659 del, 4458 sub ]
 %SER 94.58 [ 1030 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_12
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_lattice/wer_12
 %WER 28.68 [ 5775 / 20138, 658 ins, 680 del, 4437 sub ]
 %SER 94.49 [ 1029 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_13
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_lattice/wer_13
 %WER 28.61 [ 5762 / 20138, 648 ins, 697 del, 4417 sub ]
 %SER 94.49 [ 1029 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_14
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_lattice/wer_14
 %WER 28.46 [ 5731 / 20138, 622 ins, 707 del, 4402 sub ]
 %SER 94.31 [ 1027 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_15
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_lattice/wer_15
 %WER 28.30 [ 5699 / 20138, 609 ins, 718 del, 4372 sub ]
 %SER 94.40 [ 1028 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_16
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_lattice/wer_16
 %WER 28.21 [ 5681 / 20138, 597 ins, 729 del, 4355 sub ]
 %SER 94.40 [ 1028 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_17
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_lattice/wer_17
 %WER 28.06 [ 5650 / 20138, 585 ins, 734 del, 4331 sub ]
 %SER 94.40 [ 1028 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_7
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_lattice/wer_7
 %WER 29.54 [ 5949 / 20138, 789 ins, 594 del, 4566 sub ]
 %SER 94.77 [ 1032 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_8
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_lattice/wer_8
 %WER 29.21 [ 5883 / 20138, 750 ins, 612 del, 4521 sub ]
 %SER 94.67 [ 1031 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_9
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_lattice/wer_9
 %WER 29.08 [ 5857 / 20138, 722 ins, 629 del, 4506 sub ]
 %SER 94.77 [ 1032 / 1089 ]

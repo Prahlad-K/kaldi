@@ -126,7 +126,7 @@ def compute_sentence_score(model, criterion, ntokens, inputs,
         losses = []
         past_key_values = None
         for input_tokenizer in inputs:
-            output = model(input_ids=input_tokenizer['input_ids'], past_key_values=past_key_values, labels=input_tokenizer['input_ids'], use_cache=True)
+            output = model(**input_tokenizer, past_key_values=past_key_values, use_cache=True)
             past_key_values = output.past_key_values
             losses.append(output.logits.cpu().detach().flatten().numpy())
 
