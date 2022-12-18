@@ -235,7 +235,7 @@ def main():
     ntokens = len(vocab)
     
     print("Load GCNN model.")
-    model = AutoModel.from_pretrained('prajjwal1/bert-tiny').to(device)
+    model = AutoModel.from_pretrained(args.model_path).to(device)
     tokenizer = AutoTokenizer.from_pretrained('prajjwal1/bert-tiny')
 
     criterion = nn.CrossEntropyLoss(reduction='none')

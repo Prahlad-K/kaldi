@@ -1,0 +1,105 @@
+N-best - TED-LIUM: 
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_nbest/wer_10
+%WER 9.00 [ 2474 / 27500, 462 ins, 480 del, 1532 sub ]
+%SER 73.94 [ 854 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_nbest/wer_11
+%WER 8.97 [ 2468 / 27500, 466 ins, 481 del, 1521 sub ]
+%SER 74.03 [ 855 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_nbest/wer_12
+%WER 8.97 [ 2466 / 27500, 469 ins, 481 del, 1516 sub ]
+%SER 74.11 [ 856 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_nbest/wer_13
+%WER 9.00 [ 2475 / 27500, 473 ins, 482 del, 1520 sub ]
+%SER 74.11 [ 856 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_nbest/wer_14
+%WER 9.01 [ 2478 / 27500, 475 ins, 482 del, 1521 sub ]
+%SER 74.11 [ 856 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_nbest/wer_15
+%WER 9.05 [ 2488 / 27500, 476 ins, 483 del, 1529 sub ]
+%SER 74.11 [ 856 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_nbest/wer_16
+%WER 9.07 [ 2493 / 27500, 475 ins, 483 del, 1535 sub ]
+%SER 74.20 [ 857 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_nbest/wer_17
+%WER 9.05 [ 2489 / 27500, 472 ins, 481 del, 1536 sub ]
+%SER 74.03 [ 855 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_nbest/wer_7
+%WER 9.02 [ 2480 / 27500, 455 ins, 476 del, 1549 sub ]
+%SER 74.03 [ 855 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_nbest/wer_8
+%WER 9.01 [ 2477 / 27500, 455 ins, 478 del, 1544 sub ]
+%SER 73.85 [ 853 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_nbest/wer_9
+%WER 9.00 [ 2474 / 27500, 460 ins, 480 del, 1534 sub ]
+%SER 74.11 [ 856 / 1155 ]
+
+Lattice - TED-LIUM:
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_10
+%WER 10.29 [ 2623 / 25498, 453 ins, 434 del, 1736 sub ] [PARTIAL]
+%SER 75.67 [ 818 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_11
+%WER 10.25 [ 2614 / 25498, 452 ins, 439 del, 1723 sub ] [PARTIAL]
+%SER 75.67 [ 818 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_12
+%WER 10.24 [ 2610 / 25498, 445 ins, 442 del, 1723 sub ] [PARTIAL]
+%SER 75.39 [ 815 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_13
+%WER 10.12 [ 2580 / 25498, 435 ins, 445 del, 1700 sub ] [PARTIAL]
+%SER 74.93 [ 810 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_14
+%WER 10.02 [ 2556 / 25498, 426 ins, 451 del, 1679 sub ] [PARTIAL]
+%SER 74.75 [ 808 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_15
+%WER 9.97 [ 2542 / 25498, 413 ins, 460 del, 1669 sub ] [PARTIAL]
+%SER 74.38 [ 804 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_16
+%WER 9.93 [ 2533 / 25498, 412 ins, 472 del, 1649 sub ] [PARTIAL]
+%SER 74.28 [ 803 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_17
+%WER 9.85 [ 2512 / 25498, 407 ins, 471 del, 1634 sub ] [PARTIAL]
+%SER 74.38 [ 804 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_7
+%WER 10.51 [ 2681 / 25498, 456 ins, 424 del, 1801 sub ] [PARTIAL]
+%SER 76.32 [ 825 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_8
+%WER 10.49 [ 2674 / 25498, 458 ins, 431 del, 1785 sub ] [PARTIAL]
+%SER 76.41 [ 826 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_9
+%WER 10.40 [ 2653 / 25498, 455 ins, 434 del, 1764 sub ] [PARTIAL]
+%SER 76.41 [ 826 / 1081 ]
+
+N-best - Librispeech:
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_10
+%WER 19.82 [ 3992 / 20138, 860 ins, 217 del, 2915 sub ]
+%SER 94.31 [ 1027 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_11
+%WER 19.72 [ 3972 / 20138, 861 ins, 212 del, 2899 sub ]
+%SER 94.03 [ 1024 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_12
+%WER 19.64 [ 3955 / 20138, 859 ins, 213 del, 2883 sub ]
+%SER 93.85 [ 1022 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_13
+%WER 19.58 [ 3944 / 20138, 861 ins, 212 del, 2871 sub ]
+%SER 93.85 [ 1022 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_14
+%WER 19.52 [ 3931 / 20138, 857 ins, 210 del, 2864 sub ]
+%SER 93.76 [ 1021 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_15
+%WER 19.49 [ 3925 / 20138, 856 ins, 215 del, 2854 sub ]
+%SER 93.85 [ 1022 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_16
+%WER 19.41 [ 3909 / 20138, 851 ins, 212 del, 2846 sub ]
+%SER 93.85 [ 1022 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_17                                                                                                       %WER 19.37 [ 3900 / 20138, 850 ins, 213 del, 2837 sub ]
+%SER 93.85 [ 1022 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_7
+%WER 19.98 [ 4023 / 20138, 859 ins, 217 del, 2947 sub ]
+%SER 94.67 [ 1031 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_8
+%WER 19.92 [ 4011 / 20138, 866 ins, 217 del, 2928 sub ]
+%SER 94.31 [ 1027 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_9
+%WER 19.87 [ 4001 / 20138, 860 ins, 219 del, 2922 sub ]
+%SER 94.21 [ 1026 / 1089 ]
+
+Lattice - Librispeech:
