@@ -69,37 +69,37 @@ exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_lattice/wer_9
 %SER 85.75 [ 927 / 1081 ]
 
 N-best - LibriSpeech:
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_10
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_nbest/wer_10
 %WER 22.97 [ 4625 / 20138, 530 ins, 522 del, 3573 sub ]
 %SER 97.80 [ 1065 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_11
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_nbest/wer_11
 %WER 22.87 [ 4606 / 20138, 521 ins, 527 del, 3558 sub ]
 %SER 97.89 [ 1066 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_12
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_nbest/wer_12
 %WER 22.82 [ 4595 / 20138, 516 ins, 535 del, 3544 sub ]
 %SER 97.89 [ 1066 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_13
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_nbest/wer_13
 %WER 22.71 [ 4574 / 20138, 499 ins, 541 del, 3534 sub ]
 %SER 97.89 [ 1066 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_14
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_nbest/wer_14
 %WER 22.62 [ 4555 / 20138, 493 ins, 543 del, 3519 sub ]
 %SER 97.80 [ 1065 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_15
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_nbest/wer_15
 %WER 22.48 [ 4528 / 20138, 487 ins, 548 del, 3493 sub ]
 %SER 97.61 [ 1063 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_16
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_nbest/wer_16
 %WER 22.54 [ 4539 / 20138, 484 ins, 557 del, 3498 sub ]
 %SER 97.61 [ 1063 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_17
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_nbest/wer_17
 %WER 22.52 [ 4536 / 20138, 483 ins, 561 del, 3492 sub ]
 %SER 97.61 [ 1063 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_7
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_nbest/wer_7
 %WER 23.22 [ 4677 / 20138, 577 ins, 490 del, 3610 sub ]
 %SER 98.07 [ 1068 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_8
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_nbest/wer_8
 %WER 23.08 [ 4648 / 20138, 557 ins, 501 del, 3590 sub ]
 %SER 98.07 [ 1068 / 1089 ]
-exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_9
+exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_nbest/wer_9
 %WER 22.98 [ 4627 / 20138, 538 ins, 511 del, 3578 sub ]
 %SER 97.98 [ 1067 / 1089 ]
 
