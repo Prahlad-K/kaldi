@@ -339,7 +339,7 @@ if [ $stage -le 19 ]; then
         --beam 4 \
         --epsilon 0.5 \
         --oov-symbol "'$oov'" \
-        --stage 1 \
+        --stage 0 \
         $lang_dir $nn_model $vocab_data_dir/words.txt \
         $data_dir $decoding_dir \
         $output_dir
