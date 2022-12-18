@@ -136,3 +136,73 @@ exp/tri3b/decode_tgsmall_dev_clean_2_pytorch_transformer_lattice/wer_8
 exp/tri3b/decode_tgsmall_dev_clean_2_pytorch_transformer_lattice/wer_9
 %WER 27.58 [ 5554 / 20138, 808 ins, 516 del, 4230 sub ]
 %SER 90.27 [ 983 / 1089 ]
+
+N-best - Librispeech Large:
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_nbest/wer_10
+%WER 19.03 [ 3832 / 20138, 657 ins, 311 del, 2864 sub ]
+%SER 88.52 [ 964 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_nbest/wer_11
+%WER 18.89 [ 3805 / 20138, 645 ins, 315 del, 2845 sub ]
+%SER 87.42 [ 952 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_nbest/wer_12
+%WER 18.81 [ 3787 / 20138, 631 ins, 324 del, 2832 sub ]
+%SER 87.14 [ 949 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_nbest/wer_13
+%WER 18.64 [ 3754 / 20138, 610 ins, 336 del, 2808 sub ]
+%SER 86.59 [ 943 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_nbest/wer_14
+%WER 18.53 [ 3731 / 20138, 598 ins, 341 del, 2792 sub ]
+%SER 86.32 [ 940 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_nbest/wer_15
+%WER 18.18 [ 3662 / 20138, 572 ins, 348 del, 2742 sub ]
+%SER 84.85 [ 924 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_nbest/wer_16
+%WER 18.05 [ 3634 / 20138, 555 ins, 354 del, 2725 sub ]
+%SER 84.30 [ 918 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_nbest/wer_17
+%WER 17.82 [ 3589 / 20138, 531 ins, 365 del, 2693 sub ]
+%SER 84.02 [ 915 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_nbest/wer_7
+%WER 19.35 [ 3896 / 20138, 700 ins, 294 del, 2902 sub ]
+%SER 90.63 [ 987 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_nbest/wer_8
+%WER 19.24 [ 3875 / 20138, 683 ins, 298 del, 2894 sub ]
+%SER 89.90 [ 979 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_nbest/wer_9
+%WER 19.14 [ 3855 / 20138, 668 ins, 307 del, 2880 sub ]
+%SER 89.16 [ 971 / 1089 ]
+
+Lattice Rescoring - LibriSpeech Large:
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_lattice/wer_10
+%WER 20.88 [ 4205 / 20138, 689 ins, 343 del, 3173 sub ]
+%SER 84.48 [ 920 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_lattice/wer_11
+%WER 20.70 [ 4169 / 20138, 664 ins, 359 del, 3146 sub ]
+%SER 84.21 [ 917 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_lattice/wer_12
+%WER 20.51 [ 4131 / 20138, 636 ins, 375 del, 3120 sub ]
+%SER 84.11 [ 916 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_lattice/wer_13
+%WER 20.21 [ 4070 / 20138, 607 ins, 385 del, 3078 sub ]
+%SER 83.93 [ 914 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_lattice/wer_14
+%WER 20.03 [ 4034 / 20138, 582 ins, 399 del, 3053 sub ]
+%SER 83.84 [ 913 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_lattice/wer_15
+%WER 19.67 [ 3961 / 20138, 553 ins, 413 del, 2995 sub ]
+%SER 83.29 [ 907 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_lattice/wer_16
+%WER 19.42 [ 3910 / 20138, 520 ins, 432 del, 2958 sub ]
+%SER 82.92 [ 903 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_lattice/wer_17
+%WER 19.17 [ 3860 / 20138, 493 ins, 448 del, 2919 sub ]
+%SER 82.74 [ 901 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_lattice/wer_7
+%WER 21.44 [ 4317 / 20138, 759 ins, 320 del, 3238 sub ]
+%SER 85.03 [ 926 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_lattice/wer_8
+%WER 21.27 [ 4283 / 20138, 732 ins, 329 del, 3222 sub ]
+%SER 84.94 [ 925 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_lattice/wer_9
+%WER 21.09 [ 4248 / 20138, 713 ins, 337 del, 3198 sub ]
+%SER 84.76 [ 923 / 1089 ]

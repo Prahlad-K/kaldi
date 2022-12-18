@@ -137,3 +137,39 @@ exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_lattice/wer_8
 exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_lattice/wer_9
 %WER 29.08 [ 5857 / 20138, 722 ins, 629 del, 4506 sub ]
 %SER 94.77 [ 1032 / 1089 ]
+
+N-best Librispeech Large:
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_nbest/wer_10
+%WER 18.95 [ 3817 / 20138, 513 ins, 398 del, 2906 sub ]
+%SER 97.43 [ 1061 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_nbest/wer_11
+%WER 18.90 [ 3806 / 20138, 501 ins, 402 del, 2903 sub ]
+%SER 97.43 [ 1061 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_nbest/wer_12
+%WER 18.84 [ 3793 / 20138, 496 ins, 407 del, 2890 sub ]
+%SER 97.52 [ 1062 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_nbest/wer_13
+%WER 18.82 [ 3790 / 20138, 485 ins, 412 del, 2893 sub ]
+%SER 97.52 [ 1062 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_nbest/wer_14
+%WER 18.72 [ 3769 / 20138, 476 ins, 416 del, 2877 sub ]
+%SER 97.25 [ 1059 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_nbest/wer_15
+%WER 18.63 [ 3751 / 20138, 469 ins, 421 del, 2861 sub ]
+%SER 97.15 [ 1058 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_nbest/wer_16
+%WER 18.55 [ 3735 / 20138, 459 ins, 423 del, 2853 sub ]
+%SER 96.97 [ 1056 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_nbest/wer_17
+%WER 18.42 [ 3710 / 20138, 449 ins, 426 del, 2835 sub ]
+%SER 96.79 [ 1054 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_nbest/wer_7
+%WER 19.14 [ 3855 / 20138, 552 ins, 374 del, 2929 sub ]
+%SER 97.61 [ 1063 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_nbest/wer_8
+%WER 19.08 [ 3843 / 20138, 533 ins, 382 del, 2928 sub ]
+%SER 97.70 [ 1064 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_nbest/wer_9
+%WER 18.97 [ 3821 / 20138, 523 ins, 389 del, 2909 sub ]
+%SER 97.43 [ 1061 / 1089 ]
+

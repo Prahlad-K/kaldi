@@ -1,11 +1,11 @@
-from transformers import BlenderbotSmallTokenizer, BlenderbotSmallForCausalLM
+from transformers import PreTrainedModel, PreTrainedTokenizer
 
 # Get the model online
-model = BlenderbotSmallForCausalLM.from_pretrained("facebook/blenderbot_small-90M")
+model = PreTrainedModel.from_pretrained("prajjwal1/bert-small")
 # Save the pretrained model
-BlenderbotSmallForCausalLM.save_pretrained(model, 'exp/gcnnlm/')
+PreTrainedModel.save_pretrained(model, 'exp/gcnnlm/')
 
 # Get the tokenizer online
-tokenizer = BlenderbotSmallTokenizer.from_pretrained("facebook/blenderbot_small-90M")
+tokenizer = PreTrainedTokenizer.from_pretrained("prajjwal1/bert-small")
 # Save the pretrained tokenizer
-BlenderbotSmallTokenizer.save_pretrained(tokenizer, 'exp/gcnnlm/tokenizer/')
+PreTrainedTokenizer.save_pretrained(tokenizer, 'exp/gcnnlm/tokenizer/')
