@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Author: Prahlad Koratamaddi, UNI: pk2743
 # This script is very similar to rnnlm/lmrescore_nbest.sh, and it performs N-best
 # LM rescoring with a Pytorch-trained neural LM.
 

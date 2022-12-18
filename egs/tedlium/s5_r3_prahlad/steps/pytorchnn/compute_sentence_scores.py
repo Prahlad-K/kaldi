@@ -1,3 +1,5 @@
+# Author: Prahlad Koratamaddi, UNI: pk2743
+# Extending the work done by:
 # Copyright 2020    Ke Li
 
 """ This script computes sentence scores in a batch computation mode with a
@@ -92,7 +94,7 @@ def get_input_and_target(args, hyps, vocab):
     batch_size = len(hyps)
     assert batch_size > 0
 
-    # Preprocess input and target sequences
+    # pk2743: Preprocess input and target sequences
     inputs, outputs = [], []
     for hyp in hyps:
         input_string = args.sent_boundary + ' ' + hyp
@@ -115,7 +117,7 @@ def get_input_and_target(args, hyps, vocab):
     seq_lens = torch.LongTensor(batch_lens)
     max_len = max(batch_lens)
 
-    # Zero padding for input and target sequences.
+    # pk2743: Zero padding for input and target sequences.
     data = torch.LongTensor(batch_size, max_len).zero_()
     target = torch.LongTensor(batch_size, max_len).zero_()
     for idx, seq_len in enumerate(batch_lens):
@@ -148,6 +150,7 @@ def compute_sentence_score(model, criterion, ntokens, data, target,
 
     with torch.no_grad():
         if model_type == 'Transformer':
+            # pk2743: execute the Transformer model with the prepared data
             output = model(data)
         else:
             output, _ = model(data, hidden)
@@ -183,7 +186,7 @@ def compute_scores(args, sents, model, criterion, ntokens, vocab, model_type='LS
         utterances.
     """
 
-    # Turn on evaluation mode which disables dropout.
+    # pk2743: Turn on evaluation mode which disables dropout.
     model.eval()
     sents_and_scores = defaultdict()
     for idx, key in enumerate(sents.keys()):
@@ -281,6 +284,7 @@ def main():
     print("Load model and criterion.")
     import model
     if args.model == 'Transformer':
+        # pk2743: create the Transformer Model in Pytorch based on the specified architecture arguments
         model = model.TransformerModel(ntokens, args.emsize, args.nhead,
                                        args.nhid, args.nlayers,
                                        activation="gelu", tie_weights=True)

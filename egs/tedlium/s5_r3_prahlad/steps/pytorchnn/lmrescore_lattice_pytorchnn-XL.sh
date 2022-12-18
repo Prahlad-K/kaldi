@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Author: Prahlad Koratamaddi, UNI: pk2743
+# Extending the work done by:
 # Copyright 2012  Johns Hopkins University (Author: Daniel Povey)
 #           2021  Johns Hopkins University (Author: Ke Li)
 

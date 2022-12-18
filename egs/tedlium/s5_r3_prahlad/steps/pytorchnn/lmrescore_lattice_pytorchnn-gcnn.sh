@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 
+# Author: Prahlad Koratamaddi, UNI: pk2743
+# Extending the work done by:
 # Copyright 2012  Johns Hopkins University (Author: Daniel Povey)
 #           2021  Johns Hopkins University (Author: Ke Li)
 
 # This script performs lattice rescoring with a PyTorch-trained neural LM.
 
 # Begin configuration section.
-model_type=Transformer-XL
-embedding_dim=1024
-hidden_dim=4096
-nlayers=18
+model_type=GCNN
+embedding_dim=280
+hidden_dim=850
+nlayers=8
 nhead=16
-pytorch_path=exp/transformer_xl
+pytorch_path=exp/gcnnlm
 nn_model=$pytorch_path/
 
 inv_acwt=10

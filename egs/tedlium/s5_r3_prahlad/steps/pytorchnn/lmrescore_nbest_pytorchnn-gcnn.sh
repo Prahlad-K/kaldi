@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 
+# Author: Prahlad Koratamaddi, UNI: pk2743
 # This script is very similar to rnnlm/lmrescore_nbest.sh, and it performs N-best
 # LM rescoring with a Pytorch-trained neural LM.
 
 # Begin configuration section.
 N=10
-model_type=Transformer # LSTM, GRU or Transformer
-embedding_dim=768
-hidden_dim=768
-nlayers=6
-nhead=8
+model_type=GCNN
+embedding_dim=280
+hidden_dim=850
+nlayers=8
+nhead=16
 
 inv_acwt=10
 weight=0.8 # interpolation weight of a neural network LM with a N-gram LM

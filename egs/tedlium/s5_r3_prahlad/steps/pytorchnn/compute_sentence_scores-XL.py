@@ -1,3 +1,5 @@
+# Author: Prahlad Koratamaddi, UNI: pk2743
+# Extending the work done by:
 # Copyright 2020    Ke Li
 
 """ This script computes sentence scores in a batch computation mode with a
@@ -94,35 +96,12 @@ def get_input_and_target(args, hyps, tokenizer, vocab):
     batch_size = len(hyps)
     assert batch_size > 0
 
-    # Preprocess input and target sequences
+    # pk2743: Preprocess input and target sequences
     inputs = []
     for hyp in hyps:
         input_ids = tokenizer(args.sent_boundary + ' ' + hyp, return_tensors="pt").to(device)
-        # input_ids, output_ids = [], []
-        # for word in input_string.split():
-        #     try:
-        #         input_ids.append(vocab[word])
-        #     except KeyError:
-        #         input_ids.append(vocab[args.oov])
-        # for word in output_string.split():
-        #     try:
-        #         output_ids.append(vocab[word])
-        #     except KeyError:
-        #         output_ids.append(vocab[args.oov])
         inputs.append(input_ids)
 
-    # batch_lens = [len(seq) for seq in inputs]
-    #seq_lens = torch.LongTensor(batch_lens)
-    # max_len = max(batch_lens)
-
-    # # Zero padding for input and target sequences.
-    # data = torch.LongTensor(batch_size, max_len).zero_()
-    # target = torch.LongTensor(batch_size, max_len).zero_()
-    # for idx, seq_len in enumerate(batch_lens):
-    #     data[idx, :seq_len] = torch.LongTensor(inputs[idx])
-    #     target[idx, :seq_len] = torch.LongTensor(outputs[idx])
-    # data = data.t().contiguous()
-    # target = target.t().contiguous().view(-1)
     return inputs
 
 
@@ -146,6 +125,7 @@ def compute_sentence_score(model, criterion, ntokens, inputs,
         the last hidden state from the best hypothesis for an utterance.
     """
 
+    # pk2743: compute the scores using the Transformer-XL output losses
     with torch.no_grad():
         losses = []
         mems = None
@@ -181,12 +161,12 @@ def compute_scores(args, sents, model, criterion, tokenizer, ntokens, vocab, mod
         utterances.
     """
 
-    # Turn on evaluation mode which disables dropout.
+    # pk2743: Turn on evaluation mode which disables dropout.
     model.eval()
     sents_and_scores = defaultdict()
     for idx, key in enumerate(sents.keys()):
         batch_size = len(sents[key])
-        # Dimension of input data is [seq_len, batch_size]
+        # pk2743: Dimension of input data is [seq_len, batch_size]
         inputs = get_input_and_target(args, sents[key], tokenizer, vocab)
         
         scores, seq_lens = compute_sentence_score(model, criterion, ntokens, inputs,
@@ -261,6 +241,7 @@ def main():
     vocab = read_vocab(args.vocabulary)
     ntokens = len(vocab)
     
+    # pk2743: Load the transformer XL pretrained model from the model path
     print("Load Transformer XL model.")
     model = TransfoXLLMHeadModel.from_pretrained(args.model_path).to(device)
     tokenizer = TransfoXLTokenizer.from_pretrained("transfo-xl-wt103")

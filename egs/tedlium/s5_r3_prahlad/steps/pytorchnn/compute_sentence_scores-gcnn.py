@@ -1,3 +1,5 @@
+# Author: Prahlad Koratamaddi, UNI: pk2743
+# Extending the work done by:
 # Copyright 2020    Ke Li
 
 """ This script computes sentence scores in a batch computation mode with a
@@ -94,7 +96,8 @@ def get_input_and_target(args, hyps, tokenizer, vocab):
     batch_size = len(hyps)
     assert batch_size > 0
 
-    # Preprocess input and target sequences
+    # pk2743: Preprocess input and target sequences
+    # Store the tokenizers for each of the input hypotheses
     inputs = []
     for hyp in hyps:
         input_ids = tokenizer(hyp, return_tensors="pt").to(device)
@@ -122,6 +125,7 @@ def compute_sentence_score(model, criterion, ntokens, inputs,
         the last hidden state from the best hypothesis for an utterance.
     """
 
+    # pk2743: prepare a losses 2-D list that maintains each hypothesis' last hidden state
     with torch.no_grad():
         losses = []
         for input_tokenizer in inputs:
@@ -154,12 +158,12 @@ def compute_scores(args, sents, model, criterion, tokenizer, ntokens, vocab, mod
         utterances.
     """
 
-    # Turn on evaluation mode which disables dropout.
+    # pk2743: Turn on evaluation mode which disables dropout.
     model.eval()
     sents_and_scores = defaultdict()
     for idx, key in enumerate(sents.keys()):
         batch_size = len(sents[key])
-        # Dimension of input data is [seq_len, batch_size]
+        # pk2743: Dimension of input data is [seq_len, batch_size]
         inputs = get_input_and_target(args, sents[key], tokenizer, vocab)
         
         scores, seq_lens = compute_sentence_score(model, criterion, ntokens, inputs,
@@ -234,6 +238,7 @@ def main():
     vocab = read_vocab(args.vocabulary)
     ntokens = len(vocab)
     
+    # pk2743: load the pre-trained GCNN model + corresponding tokenizer
     print("Load GCNN model.")
     model = AutoModel.from_pretrained(args.model_path).to(device)
     tokenizer = AutoTokenizer.from_pretrained(args.model_path + '/tokenizer/')
