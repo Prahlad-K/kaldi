@@ -173,3 +173,37 @@ exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_nbest/wer_9
 %WER 18.97 [ 3821 / 20138, 523 ins, 389 del, 2909 sub ]
 %SER 97.43 [ 1061 / 1089 ]
 
+Lattice Rescoring - LibriSpeech Large:
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_lattice/wer_10
+%WER 21.55 [ 4340 / 20138, 601 ins, 416 del, 3323 sub ]
+%SER 88.61 [ 965 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_lattice/wer_11
+%WER 21.45 [ 4320 / 20138, 585 ins, 421 del, 3314 sub ]
+%SER 88.61 [ 965 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_lattice/wer_12
+%WER 21.29 [ 4287 / 20138, 571 ins, 429 del, 3287 sub ]
+%SER 88.43 [ 963 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_lattice/wer_13
+%WER 21.09 [ 4247 / 20138, 553 ins, 431 del, 3263 sub ]
+%SER 88.34 [ 962 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_lattice/wer_14
+%WER 20.96 [ 4220 / 20138, 538 ins, 438 del, 3244 sub ]
+%SER 88.34 [ 962 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_lattice/wer_15
+%WER 20.83 [ 4194 / 20138, 521 ins, 441 del, 3232 sub ]
+%SER 88.25 [ 961 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_lattice/wer_16
+%WER 20.80 [ 4189 / 20138, 514 ins, 448 del, 3227 sub ]
+%SER 88.15 [ 960 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_lattice/wer_17
+%WER 20.72 [ 4172 / 20138, 504 ins, 454 del, 3214 sub ]
+%SER 87.88 [ 957 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_lattice/wer_7
+%WER 21.96 [ 4423 / 20138, 678 ins, 384 del, 3361 sub ]
+%SER 88.25 [ 961 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_lattice/wer_8
+%WER 21.86 [ 4403 / 20138, 653 ins, 396 del, 3354 sub ]
+%SER 88.34 [ 962 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_lattice/wer_9
+%WER 21.73 [ 4376 / 20138, 622 ins, 405 del, 3349 sub ]
+%SER 88.52 [ 964 / 1089 ]
