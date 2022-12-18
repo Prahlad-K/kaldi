@@ -68,7 +68,7 @@ exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_9
 %WER 10.40 [ 2653 / 25498, 455 ins, 434 del, 1764 sub ] [PARTIAL]
 %SER 76.41 [ 826 / 1081 ]
 
-N-best - Librispeech:
+N-best - Librispeech Large:
 exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_10
 %WER 19.82 [ 3992 / 20138, 860 ins, 217 del, 2915 sub ]
 %SER 94.31 [ 1027 / 1089 ]
@@ -102,4 +102,37 @@ exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_9
 %WER 19.87 [ 4001 / 20138, 860 ins, 219 del, 2922 sub ]
 %SER 94.21 [ 1026 / 1089 ]
 
-Lattice - Librispeech:
+Lattice - Librispeech Large:
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_lattice/wer_10
+%WER 21.25 [ 4279 / 20138, 860 ins, 245 del, 3174 sub ]
+%SER 84.30 [ 918 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_lattice/wer_11
+%WER 21.10 [ 4249 / 20138, 853 ins, 244 del, 3152 sub ]
+%SER 84.11 [ 916 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_lattice/wer_12
+%WER 20.98 [ 4224 / 20138, 842 ins, 246 del, 3136 sub ]
+%SER 84.02 [ 915 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_lattice/wer_13
+%WER 20.76 [ 4181 / 20138, 832 ins, 245 del, 3104 sub ]
+%SER 83.84 [ 913 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_lattice/wer_14
+%WER 20.66 [ 4160 / 20138, 831 ins, 252 del, 3077 sub ]
+%SER 83.56 [ 910 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_lattice/wer_15
+%WER 20.40 [ 4109 / 20138, 818 ins, 256 del, 3035 sub ]
+%SER 83.20 [ 906 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_lattice/wer_16
+%WER 20.15 [ 4058 / 20138, 796 ins, 260 del, 3002 sub ]
+%SER 83.56 [ 910 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_lattice/wer_17
+%WER 19.81 [ 3989 / 20138, 782 ins, 260 del, 2947 sub ]
+%SER 83.01 [ 904 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_lattice/wer_7
+%WER 21.59 [ 4348 / 20138, 887 ins, 246 del, 3215 sub ]
+%SER 84.66 [ 922 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_lattice/wer_8
+%WER 21.47 [ 4323 / 20138, 881 ins, 245 del, 3197 sub ]
+%SER 84.39 [ 919 / 1089 ]
+exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_lattice/wer_9
+%WER 21.36 [ 4302 / 20138, 873 ins, 243 del, 3186 sub ]
+%SER 84.39 [ 919 / 1089 ]
