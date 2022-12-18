@@ -34,30 +34,39 @@ exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_nbest/wer_9
 %SER 81.90 [ 946 / 1155 ]
 
 Lattice rescoring - TED-LIUM:
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_10
-%WER 9.64 [ 2652 / 27500, 402 ins, 597 del, 1653 sub ]
-%SER 82.08 [ 948 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_11
-%WER 9.66 [ 2656 / 27500, 394 ins, 621 del, 1641 sub ]
-%SER 82.08 [ 948 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_12
-%WER 9.76 [ 2683 / 27500, 393 ins, 643 del, 1647 sub ]
-%SER 83.03 [ 959 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_13
-%WER 9.83 [ 2703 / 27500, 391 ins, 659 del, 1653 sub ]
-%SER 83.72 [ 967 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_14
-%WER 9.83 [ 2703 / 27500, 385 ins, 670 del, 1648 sub ]
-%SER 83.98 [ 970 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_15
-%WER 9.87 [ 2713 / 27500, 382 ins, 689 del, 1642 sub ]
-%SER 84.59 [ 977 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_16
-%WER 9.91 [ 2725 / 27500, 383 ins, 695 del, 1647 sub ]
-%SER 84.85 [ 980 / 1155 ]
-exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl/wer_17
-%WER 9.93 [ 2732 / 27500, 383 ins, 707 del, 1642 sub ]
-%SER 85.02 [ 982 / 1155 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_lattice/wer_10
+%WER 12.73 [ 3246 / 25498, 367 ins, 736 del, 2143 sub ] [PARTIAL]
+%SER 85.85 [ 928 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_lattice/wer_11
+%WER 12.80 [ 3263 / 25498, 362 ins, 755 del, 2146 sub ] [PARTIAL]
+%SER 86.03 [ 930 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_lattice/wer_12
+%WER 12.81 [ 3267 / 25498, 354 ins, 781 del, 2132 sub ] [PARTIAL]
+%SER 86.03 [ 930 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_lattice/wer_13
+%WER 12.80 [ 3264 / 25498, 348 ins, 803 del, 2113 sub ] [PARTIAL]
+%SER 85.48 [ 924 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_lattice/wer_14
+%WER 12.85 [ 3277 / 25498, 339 ins, 819 del, 2119 sub ] [PARTIAL]
+%SER 85.75 [ 927 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_lattice/wer_15
+%WER 12.91 [ 3292 / 25498, 337 ins, 836 del, 2119 sub ] [PARTIAL]
+%SER 85.75 [ 927 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_lattice/wer_16
+%WER 12.93 [ 3298 / 25498, 334 ins, 852 del, 2112 sub ] [PARTIAL]
+%SER 85.85 [ 928 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_lattice/wer_17
+%WER 12.98 [ 3309 / 25498, 329 ins, 875 del, 2105 sub ] [PARTIAL]
+%SER 86.40 [ 934 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_lattice/wer_7
+%WER 12.68 [ 3232 / 25498, 414 ins, 645 del, 2173 sub ] [PARTIAL]
+%SER 85.66 [ 926 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_lattice/wer_8
+%WER 12.69 [ 3235 / 25498, 393 ins, 686 del, 2156 sub ] [PARTIAL]
+%SER 85.57 [ 925 / 1081 ]
+exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_lattice/wer_9
+%WER 12.71 [ 3240 / 25498, 375 ins, 709 del, 2156 sub ] [PARTIAL]
+%SER 85.75 [ 927 / 1081 ]
 
 N-best - LibriSpeech:
 exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl/wer_10
