@@ -322,7 +322,6 @@ if [ $stage -le 19 ]; then
         --nhead $nhead \
         --weight 0.7 \
         --oov-symbol "'$oov'" \
-        #--stage 7 \
         --stage 0 \
         $lang_dir $nn_model $vocab_data_dir/words.txt \
         $data_dir $decoding_dir \
@@ -340,7 +339,6 @@ if [ $stage -le 19 ]; then
         --beam 4 \
         --epsilon 0.5 \
         --oov-symbol "'$oov'" \
-        #--stage 3 \
         --stage 1 \
         $lang_dir $nn_model $vocab_data_dir/words.txt \
         $data_dir $decoding_dir \
