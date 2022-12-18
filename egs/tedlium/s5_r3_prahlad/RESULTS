@@ -5,7 +5,10 @@ bash ./results.sh
 
 exit 0
 
+LibriSpeech results:
 %WER 13.11 [ 2641 / 20138, 389 ins, 289 del, 1963 sub ] exp/tri3b/decode_tglarge_dev_clean_2/wer_17_0.0
+%WER 19.81 [ 3989 / 20138, 782 ins, 260 del, 2947 sub ] exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_lattice/wer_17
+%WER 19.37 [ 3900 / 20138, 850 ins, 213 del, 2837 sub ] exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_17
 %WER 19.17 [ 3860 / 20138, 493 ins, 448 del, 2919 sub ] exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_lattice/wer_17
 %WER 17.82 [ 3589 / 20138, 531 ins, 365 del, 2693 sub ] exp/tri3b/decode_tglarge_dev_clean_2_pytorch_transformer_nbest/wer_17
 %WER 20.72 [ 4172 / 20138, 504 ins, 454 del, 3214 sub ] exp/tri3b/decode_tglarge_dev_clean_2_transformer_xl_lattice/wer_17
@@ -13,21 +16,27 @@ exit 0
 %WER 15.79 [ 3179 / 20138, 376 ins, 410 del, 2393 sub ] exp/tri3b/decode_tgmed_dev_clean_2/wer_17_0.0
 %WER 17.34 [ 3491 / 20138, 396 ins, 466 del, 2629 sub ] exp/tri3b/decode_tgsmall_dev_clean_2/wer_16_0.0
 %WER 24.07 [ 4848 / 20138, 513 ins, 697 del, 3638 sub ] exp/tri3b/decode_tgsmall_dev_clean_2.si/wer_16_0.0
+%WER 26.19 [ 5275 / 20138, 940 ins, 383 del, 3952 sub ] exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_lattice/wer_17
+%WER 22.90 [ 4612 / 20138, 803 ins, 323 del, 3486 sub ] exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_nbest/wer_16
 %WER 25.23 [ 5081 / 20138, 482 ins, 736 del, 3863 sub ] exp/tri3b/decode_tgsmall_dev_clean_2_pytorch_transformer/wer_17
 %WER 25.23 [ 5081 / 20138, 482 ins, 736 del, 3863 sub ] exp/tri3b/decode_tgsmall_dev_clean_2_pytorch_transformer_lattice/wer_17
 %WER 22.12 [ 4455 / 20138, 549 ins, 509 del, 3397 sub ] exp/tri3b/decode_tgsmall_dev_clean_2_pytorch_transformer_nbest/wer_17
 %WER 28.06 [ 5650 / 20138, 585 ins, 734 del, 4331 sub ] exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_lattice/wer_17
 %WER 22.48 [ 4528 / 20138, 487 ins, 548 del, 3493 sub ] exp/tri3b/decode_tgsmall_dev_clean_2_transformer_xl_nbest/wer_15
+
+TED-LIUM Results: 
 %WER 8.21 [ 1460 / 17783, 251 ins, 288 del, 921 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_dev/wer_9
 %WER 6.78 [ 1205 / 17783, 217 ins, 274 del, 714 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_pytorch_transformer/wer_9
 %WER 7.52 [ 1337 / 17783, 238 ins, 265 del, 834 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_rescore/wer_9
 %WER 6.38 [ 1134 / 17783, 236 ins, 225 del, 673 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_dev_rnnlm_lstm_tdnn_a_averaged/wer_8
 %WER 8.28 [ 2277 / 27500, 336 ins, 564 del, 1377 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_test/wer_9
 %WER 9.57 [ 2632 / 27500, 505 ins, 466 del, 1661 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm/wer_10
-%WER 7.17 [ 1829 / 25498, 292 ins, 496 del, 1041 sub ] [PARTIAL] exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer/wer_8
-%WER 7.17 [ 1829 / 25498, 292 ins, 496 del, 1041 sub ] [PARTIAL] exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer_lattice/wer_8
+%WER 9.85 [ 2512 / 25498, 407 ins, 471 del, 1634 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_17
+%WER 8.97 [ 2468 / 27500, 466 ins, 481 del, 1521 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_nbest/wer_11
+%WER 7.17 [ 1829 / 25498, 292 ins, 496 del, 1041 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer/wer_8
+%WER 7.17 [ 1829 / 25498, 292 ins, 496 del, 1041 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer_lattice/wer_8
 %WER 7.20 [ 1979 / 27500, 319 ins, 533 del, 1127 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_test_pytorch_transformer_nbest/wer_8
 %WER 8.00 [ 2200 / 27500, 321 ins, 619 del, 1260 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_test_rescore/wer_10
 %WER 6.77 [ 1863 / 27500, 287 ins, 535 del, 1041 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_test_rnnlm_lstm_tdnn_a_averaged/wer_9
-%WER 12.68 [ 3232 / 25498, 414 ins, 645 del, 2173 sub ] [PARTIAL] exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_lattice/wer_7
+%WER 12.68 [ 3232 / 25498, 414 ins, 645 del, 2173 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_lattice/wer_7
 %WER 9.60 [ 2641 / 27500, 411 ins, 562 del, 1668 sub ] exp/chain_cleaned_1d/tdnn1d_sp/decode_test_transformer_xl_nbest/wer_8

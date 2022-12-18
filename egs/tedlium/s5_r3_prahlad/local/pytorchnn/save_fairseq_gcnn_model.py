@@ -1,11 +1,11 @@
-from transformers import AutoModel, PreTrainedModel, AutoTokenizer, PreTrainedTokenizer
+from transformers import BertModel, BertTokenizer
 
 # Get the model online
-model = AutoModel.from_pretrained("prajjwal1/bert-tiny")
+model = BertModel.from_pretrained("prajjwal1/bert-tiny")
 # Save the pretrained model
-PreTrainedModel.save_pretrained(model, 'exp/gcnnlm/')
+BertModel.save_pretrained(model, 'exp/gcnnlm/')
 
 # Get the tokenizer online
-tokenizer = AutoTokenizer.from_pretrained("prajjwal1/bert-tiny")
+tokenizer = BertTokenizer.from_pretrained("prajjwal1/bert-tiny")
 # Save the pretrained tokenizer
-PreTrainedTokenizer.save_pretrained(tokenizer, 'exp/gcnnlm/tokenizer/')
+BertTokenizer.save_pretrained(tokenizer, 'exp/gcnnlm/tokenizer/')
