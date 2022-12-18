@@ -304,9 +304,9 @@ if [ $stage -le 19 ]; then
   else
     # must decode on librispeech!
     dset=dev_clean_2
-    lang_dir=data/lang_test_tglarge
+    lang_dir=data/lang_test_tgsmall
     data_dir=data/${dset}_hires
-    decoding_dir=exp/tri3b/decode_tglarge_$dset
+    decoding_dir=exp/tri3b/decode_tgsmall_$dset
     suffix=$(basename $tnnlm_dir)
   fi
 
