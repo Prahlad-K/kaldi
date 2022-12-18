@@ -126,7 +126,7 @@ def compute_sentence_score(model, criterion, ntokens, inputs,
         losses = []
         for input_tokenizer in inputs:
             output = model(**input_tokenizer)
-            losses.append(output.logits.cpu().detach().flatten().numpy())
+            losses.append(output.last_hidden_state.cpu().detach().flatten().numpy())
 
         loss_lens = [len(loss) for loss in losses]
         max_losslen = max(loss_lens)
