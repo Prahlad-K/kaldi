@@ -33,7 +33,7 @@ exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_nbest/wer_9
 %WER 9.00 [ 2474 / 27500, 460 ins, 480 del, 1534 sub ]
 %SER 74.11 [ 856 / 1155 ]
 
-Lattice - TED-LIUM:
+Lattice Rescoring - TED-LIUM:
 exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_10
 %WER 10.29 [ 2623 / 25498, 453 ins, 434 del, 1736 sub ] [PARTIAL]
 %SER 75.67 [ 818 / 1081 ]
@@ -67,6 +67,76 @@ exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_8
 exp/chain_cleaned_1d/tdnn1d_sp/decode_test_gcnnlm_lattice/wer_9
 %WER 10.40 [ 2653 / 25498, 455 ins, 434 del, 1764 sub ] [PARTIAL]
 %SER 76.41 [ 826 / 1081 ]
+
+N-best - LibriSpeech: 
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_nbest/wer_10
+%WER 23.20 [ 4673 / 20138, 823 ins, 316 del, 3534 sub ]
+%SER 95.96 [ 1045 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_nbest/wer_11
+%WER 23.16 [ 4664 / 20138, 818 ins, 318 del, 3528 sub ]
+%SER 95.87 [ 1044 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_nbest/wer_12
+%WER 23.15 [ 4662 / 20138, 819 ins, 321 del, 3522 sub ]
+%SER 95.78 [ 1043 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_nbest/wer_13
+%WER 23.11 [ 4653 / 20138, 814 ins, 322 del, 3517 sub ]
+%SER 95.59 [ 1041 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_nbest/wer_14
+%WER 23.05 [ 4641 / 20138, 810 ins, 323 del, 3508 sub ]
+%SER 95.32 [ 1038 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_nbest/wer_15
+%WER 22.98 [ 4628 / 20138, 804 ins, 322 del, 3502 sub ]
+%SER 95.41 [ 1039 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_nbest/wer_16
+%WER 22.90 [ 4612 / 20138, 803 ins, 323 del, 3486 sub ]
+%SER 95.13 [ 1036 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_nbest/wer_17
+%WER 22.91 [ 4613 / 20138, 801 ins, 323 del, 3489 sub ]
+%SER 95.22 [ 1037 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_nbest/wer_7
+%WER 23.34 [ 4701 / 20138, 829 ins, 312 del, 3560 sub ]
+%SER 96.05 [ 1046 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_nbest/wer_8
+%WER 23.32 [ 4697 / 20138, 827 ins, 317 del, 3553 sub ]
+%SER 95.96 [ 1045 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_nbest/wer_9
+%WER 23.25 [ 4683 / 20138, 828 ins, 315 del, 3540 sub ]
+%SER 95.96 [ 1045 / 1089 ]
+
+Lattice Rescoring - LibriSpeech: 
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_lattice/wer_10
+%WER 27.95 [ 5628 / 20138, 1057 ins, 348 del, 4223 sub ]
+%SER 90.82 [ 989 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_lattice/wer_11
+%WER 27.74 [ 5587 / 20138, 1043 ins, 354 del, 4190 sub ]
+%SER 90.73 [ 988 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_lattice/wer_12
+%WER 27.55 [ 5548 / 20138, 1025 ins, 360 del, 4163 sub ]
+%SER 90.45 [ 985 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_lattice/wer_13
+%WER 27.26 [ 5490 / 20138, 1008 ins, 365 del, 4117 sub ]
+%SER 90.27 [ 983 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_lattice/wer_14
+%WER 27.10 [ 5457 / 20138, 998 ins, 375 del, 4084 sub ]
+%SER 89.99 [ 980 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_lattice/wer_15
+%WER 26.80 [ 5397 / 20138, 983 ins, 383 del, 4031 sub ]
+%SER 89.62 [ 976 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_lattice/wer_16
+%WER 26.45 [ 5327 / 20138, 954 ins, 383 del, 3990 sub ]
+%SER 89.26 [ 972 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_lattice/wer_17
+%WER 26.19 [ 5275 / 20138, 940 ins, 383 del, 3952 sub ]
+%SER 89.26 [ 972 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_lattice/wer_7
+%WER 28.56 [ 5751 / 20138, 1107 ins, 339 del, 4305 sub ]
+%SER 91.09 [ 992 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_lattice/wer_8
+%WER 28.35 [ 5709 / 20138, 1088 ins, 340 del, 4281 sub ]
+%SER 90.91 [ 990 / 1089 ]
+exp/tri3b/decode_tgsmall_dev_clean_2_gcnnlm_lattice/wer_9
+%WER 28.14 [ 5666 / 20138, 1073 ins, 345 del, 4248 sub ]
+%SER 90.82 [ 989 / 1089 ]
 
 N-best - Librispeech Large:
 exp/tri3b/decode_tglarge_dev_clean_2_gcnnlm_nbest/wer_10
