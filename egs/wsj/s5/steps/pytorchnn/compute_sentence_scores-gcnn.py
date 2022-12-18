@@ -125,7 +125,7 @@ def compute_sentence_score(model, criterion, ntokens, inputs,
     with torch.no_grad():
         losses = []
         for input_tokenizer in inputs:
-            output = model(**input_tokenizer, return_tensors="pt")
+            output = model(**input_tokenizer)
             losses.append(output.logits.cpu().detach().flatten().numpy())
 
         loss_lens = [len(loss) for loss in losses]
