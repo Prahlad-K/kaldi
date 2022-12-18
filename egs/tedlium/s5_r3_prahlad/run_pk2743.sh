@@ -220,18 +220,43 @@ fi
 if [ $stage -le 18 ]; then
   echo "Stage 18 start"
   # pk2743: Train the NN LM or if already trained proceed
+  # IMPORTANT: commenting out these files as this may alter the final decoding results if not trained fully!
   if $train_nnlm; then
     if [[ "$model" == "pytorch_transformer" ]]; then
-      echo "Training the Transformer NNLM............."
+      echo "Setting up the Transformer NNLM............."
       #local/pytorchnn/run_nnlm.sh
     fi
     if [[ "$model" == "transformer_xl" ]]; then
-      echo "Training the Transformer-XL NNLM............."
-      python3 local/pytorchnn/save_transformer_model.py
+      echo "Setting up the Transformer-XL NNLM............."
+      #python3 local/pytorchnn/save_transformer_model.py
     fi
     if [[ "$model" == "gcnnlm" ]]; then
-      echo "Training the Gated Convolutional NNLM............."
-      python3 local/pytorchnn/save_fairseq_gcnn_model.py
+      echo "Setting up the Gated Convolutional NNLM............."
+      # pk2743: The GCNNLM was trained externally as mentioned in:
+      # https://github.com/facebookresearch/fairseq/blob/main/examples/language_model/README.conv.md
+      # This requires a lot of extensive installations, therefore is being excluded in the code submission.
+      # The two main commands that were run to train the LM:
+      # TEXT=examples/language_model/tedlium
+      # fairseq-preprocess \
+      #     --only-source \
+      #     --trainpref $TEXT/train.txt \
+      #     --validpref $TEXT/dev.txt \
+      #     --testpref $TEXT/ted.txt \
+      #     --destdir data-bin/tedlium \
+      #     --workers 20
+
+      # fairseq-train --task language_modeling \
+      #     data-bin/tedlium \
+      #     --save-dir checkpoints/fconv_tedlium \
+      #     --arch fconv_lm_dauphin_wikitext103 \
+      #     --adaptive-softmax-cutoff 10000,20000,200000 \
+      #     --dropout 0.2 \
+      #     --criterion adaptive_loss \
+      #     --optimizer nag --clip-norm 0.1 --weight-decay 5e-06 \
+      #     --lr 1.0 --lr-scheduler reduce_lr_on_plateau --lr-shrink 0.5 \
+      #     --max-tokens 1024 --tokens-per-sample 1024 \
+      #     --ddp-backend legacy_ddp \
+      #     --max-epoch 35 
     fi
   fi
 fi
@@ -302,7 +327,7 @@ if [ $stage -le 19 ]; then
     decoding_dir=exp/chain_cleaned_1d/tdnn1d_sp/decode_${dset}
     suffix=$(basename $tnnlm_dir)
   else
-    # must decode on librispeech!
+    # pk2743: must decode on librispeech!
     dset=dev_clean_2
     lang_dir=data/lang_test_tgsmall
     data_dir=data/${dset}_hires
